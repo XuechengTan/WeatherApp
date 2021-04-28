@@ -1,6 +1,7 @@
 
 import {  Switch, Route, Link, Router, NavLink} from 'react-router-dom';
-import CustomMap from './ExampleMap/CustomMap';
+import CustomMap from './components/CustomMap';
+import TestCity from './components/TestCity';
 
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
         </Route>
     </div>
 
+      
+
+      <TestCity/>
+    
   </div>
 
 
