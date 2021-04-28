@@ -1,15 +1,9 @@
 
-import { APILoader,withMap} from '@uiw/react-baidu-map';
-import ExampleMap from './Components/Map';
-
-import { BrowserRouter , Switch, Route, Link} from 'react-router-dom';
+import {  Switch, Route, Link, Router, NavLink} from 'react-router-dom';
+import CustomMap from './Components/CustomMap';
 
 
 function App() {
-
-
-  const CustomWithMap = withMap(ExampleMap);
-
 
   return (
  
@@ -18,15 +12,27 @@ function App() {
         <h1>GROUP 29</h1>
         </div>
         
-          {/* Map */}
-         <div style={{ width: '100%', height: '300px' }}>
-            <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-              <CustomWithMap enableScrollWheelZoom zoom={11}/>
-            </APILoader>
-          </div>
-       
-      
-      </div>
+     
+         
+        <NavLink to='/weather'>
+         Weather
+       </NavLink>
+
+       <NavLink to='/map'>
+          Map
+       </NavLink>
+
+       <NavLink to='/news'>
+          News
+       </NavLink>
+
+    <div> 
+        <Route path='/map' component={CustomMap}>
+                  {/* Map */}
+        </Route>
+    </div>
+
+  </div>
 
 
 
