@@ -8,8 +8,8 @@ function CustomMap(){
 
     return(
         <div style={{ width: '100%', height: '300px' }}>
-            <APILoader akay="GTrnXa5hwXGwgQnTBG28SHBubErMKm3f">
-              <CustomWithMap enableScrollWheelZoom zoom={11}/>
+            <APILoader akay="bH5HcbEYQvE8zd3I5ZX1PuG9R8YxG3Uk">
+              <CustomWithMap autoLocalCity enableScrollWheelZoom zoom={11} />
             </APILoader>
           </div>
     );

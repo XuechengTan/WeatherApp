@@ -1,6 +1,6 @@
 
 import {  Switch, Route, Link, Router, NavLink} from 'react-router-dom';
-import CustomMap from './Components/CustomMap';
+import CustomMap from './ExampleMap/CustomMap';
 
 
 function App() {
