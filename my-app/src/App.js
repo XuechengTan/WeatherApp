@@ -1,7 +1,10 @@
 
+import { Map } from '@uiw/react-baidu-map';
 import {  Switch, Route, Link, Router, NavLink} from 'react-router-dom';
 import CustomMap from './components/CustomMap';
 import TestCity from './components/TestCity';
+import GGMap from './components/TestGoogle';
+import MyClass from './components/TestGoogle';
 
 
 function App() {
@@ -28,9 +31,12 @@ function App() {
        </NavLink>
 
     <div> 
-        <Route path='/map' component={CustomMap}>
+        <Route path='/map' >
                   {/* Map */}
-        </Route>
+                  <CustomMap></CustomMap>
+                  <GGMap  />
+          </Route>
+   
     </div>
 
       
