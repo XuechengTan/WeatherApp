@@ -8,6 +8,7 @@ import Weather from "./Weather/Weather";
 import Grid from '@material-ui/core/Grid'
 import './App.css';
 import Search from './search/index'
+import TestAPI from './components/TestAPI';
 
 const weather = {
     "coord": {
@@ -53,17 +54,25 @@ const weather = {
     "name": "Mountain View",
     "cod": 200
 }
-function App() {
 
+
+
+    
+
+
+
+
+
+function App() {
+  
   return (
- 
+            
       <div>
+          
         <div className="App">
         <h1>GROUP 29</h1>
 
         
-     
-         
         <NavLink to='/weather'>
          Weather
        </NavLink>
@@ -97,10 +106,18 @@ function App() {
             </Grid>
 
         </Route>
+
+        <Route path='/news'>
+            {/* testAPI */}
+        </Route>
+
     </div>
 
   
       <TestCity/>
+      <TestAPI></TestAPI>
+
+
         </div>
   </div>
 
