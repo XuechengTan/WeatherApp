@@ -95,7 +95,7 @@ function App() {
             <Grid item xs={6}>
                 <Weather data={weather}/>
             </Grid>
-
+<p>123123123</p>
         </Route>
     </div>
 
