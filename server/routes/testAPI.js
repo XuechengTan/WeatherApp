@@ -15,7 +15,6 @@ router.post("/", function(req, res) {
             console.log("-------------------")
                 console.log(response.data)
                 console.log("-------------------")
-
                 res.json(response.data);
             });
    

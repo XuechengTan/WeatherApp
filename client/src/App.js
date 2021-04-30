@@ -25,7 +25,7 @@ import axios from 'axios';
 class App extends React.Component {
     state = {
         weather: null,
-        location:[34.0522, -118.2437]
+        location:[-0.1257, 51.5085]
     }
     render() {
         return (
@@ -44,6 +44,7 @@ class App extends React.Component {
         );
     }
 
+
     search = (content) => {
         console.log("content:"+content)
         
@@ -56,17 +57,22 @@ class App extends React.Component {
 
         this.handleWeather(response.data)
         this.handleMap(response.data)
-       
+    
        });
+
 
     }
 
     handleWeather = (weather) => {
+        console.log(weather.main.temp+"123123123")
         this.weather.refresh(weather)
     }
 
+
     handleMap = (map) => {
         this.map.refresh([map.coord.lat,map.coord.lon])
+
+
     }
 }
 

@@ -14,8 +14,32 @@ class MapContainer extends React.Component {
         console.log(this.googleMap)
     }
       
+        // console.log(this.state.location)
+        // this.googleMap.map.Center(newLocation)
+    // }
+    // showCurrentLocation = () => {
+    //     if (navigator.geolocation) {
+    //       navigator.geolocation.getCurrentPosition(
+    //         position => {
+    //           this.setState(prevState => ({
+    //             currentLatLng: {
+    //               ...prevState.currentLatLng,
+    //               lat: position.coords.latitude,
+    //               lng: position.coords.longitude
+    //             },
+    //             isMarkerShown: true
+    //           }))
+    //         }
+    //       )
+    //     } else {
+    //       error => console.log(error)
+    //     }
+    //   }
+
     render() {
+
         return (
+
             <div className="Map">
                 <GoogleMapReact 
                     ref={c => this.googleMap = c}
@@ -23,8 +47,9 @@ class MapContainer extends React.Component {
                     defaultZoom={11}
                     center={this.state.location}
                     yesIWantToUseGoogleMapApiInternals
-                    currentLatLng={this.state.location}>
-                    
+                    currentLatLng={this.state.location}
+                    >
+
                 </GoogleMapReact>
             </div>
         );
