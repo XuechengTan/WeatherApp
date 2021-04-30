@@ -20,7 +20,7 @@ const weather = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"mai
 class App extends React.Component {
     state = {
         weather: null,
-        location:[34.0522, -118.2437]
+        location:[-0.1257, 51.5085]
     }
     render() {
         return (
@@ -38,18 +38,23 @@ class App extends React.Component {
             </div>
         );
     }
+
+
     search = (content) => {
         console.log(content)
-        this.handleMap()
+        this.handleMap(weather)
         this.handleWeather(weather)
 
     }
+
     handleWeather = (weather) => {
+        console.log(weather.main.temp+"123123123")
         this.weather.refresh(weather)
     }
 
-    handleMap = () => {
-        this.map.refresh({lat:-34.0522, lng:-118.2437})
+    handleMap = (weather) => {
+        this.map.refresh([weather.coord.lat,weather.coord.lon])
+        // console.log(weather.coord.lon)
     }
 }
 
