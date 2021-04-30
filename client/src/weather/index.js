@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from '../search';
 import Style from './weather.module.css'
 class Weather extends React.Component {
     state = {
@@ -22,6 +23,8 @@ class Weather extends React.Component {
             return(<div className="Weather"></div>)
         } else {
             const weatherIconUrl = "http://openweathermap.org/img/w/" + this.state.data.weather[0].icon + ".png"
+            
+
             return (
                 <div className="Weather">
                     <div className={Style.cityName}>{this.state.data.name}</div>
