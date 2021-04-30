@@ -7,6 +7,7 @@ function Navbar() {
     <div className="Navbar">
       <Calender  />
       <User />
+      {/* <News /> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Style from './search.module.css'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -7,6 +7,11 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import MuiAlert  from '@material-ui/lab/Alert'
 import Snackbar from '@material-ui/core/Snackbar';
+import axios from 'axios';
+
+
+
+
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -17,6 +22,10 @@ class Search extends React.Component {
         open: false,
         msg: "",
     }
+
+
+    
+
     onChange = (e) => {
         const target = e.target
         this.setState({
@@ -24,11 +33,23 @@ class Search extends React.Component {
         })
     }
 
-    handleSearch = () => {
+
+     getWeatherInfo = (params)=> {
+        
+    }
+
+  handleSearch = () => {
         if(this.verify()){
             this.props.search(this.state.search)
+                        
+        
+                
+       
         }
     }
+
+
+
 
     verify = () => {
         const words = this.state.search.split(",")
@@ -69,7 +90,7 @@ class Search extends React.Component {
                     onChange={(e) => this.onChange(e)}
                 />
                 <Divider className={Style.dividerStyle} orientation="vertical" />
-                <IconButton onClick={this.handleSearch} className={Style.iconButtonStyle} aria-label="search">
+                <IconButton onClick={this.handleSearch} className={Style.iconButtonStyle} aria-label="search" className='postName'>
                     <SearchIcon />
                 </IconButton>
                 <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>

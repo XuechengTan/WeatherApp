@@ -11,9 +11,12 @@ class MapContainer extends React.Component {
         this.setState({
             location: newLocation
         })
+        console.log(this.googleMap)
+    }
+      
         // console.log(this.state.location)
         // this.googleMap.map.Center(newLocation)
-    }
+    // }
     // showCurrentLocation = () => {
     //     if (navigator.geolocation) {
     //       navigator.geolocation.getCurrentPosition(
@@ -38,11 +41,11 @@ class MapContainer extends React.Component {
         return (
 
             <div className="Map">
-                <GoogleMapReact
+                <GoogleMapReact 
                     ref={c => this.googleMap = c}
                     bootstrapURLKeys={ {key: "AIzaSyDOr6t4ExGs3TE8CTAGsI5tk3Zpor_Egow"} }
-                    defaultZoom={13}
-                    center = {this.state.location}
+                    defaultZoom={11}
+                    center={this.state.location}
                     yesIWantToUseGoogleMapApiInternals
                     currentLatLng={this.state.location}
                     >
