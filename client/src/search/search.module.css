@@ -1,0 +1,19 @@
+.rootStyle {
+    padding: 2px 4px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    margin:0 auto;
+  margin-top: 40px;
+}
+.inputStyle{
+    margin-left: 10px;
+    flex: 1px;
+}
+.iconButtonStyle {
+    padding: 10px;
+}
+.dividerStyle {
+    height: 28px;
+    margin: 4px;
+}
