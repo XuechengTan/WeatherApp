@@ -1,16 +1,21 @@
 import React from 'react';
+import Style from './search.module.css'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
+import MuiAlert  from '@material-ui/lab/Alert'
+import Snackbar from '@material-ui/core/Snackbar';
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
 class Search extends React.Component {
     state = {
-        search:""
-    }
-    handleSearch = () => {
-        console.log("Search:" + this.state.search)
+        search: "",
+        open: false,
+        msg: "",
     }
     onChange = (e) => {
         const target = e.target
@@ -18,36 +23,61 @@ class Search extends React.Component {
             search: target.value
         })
     }
-    render() {
-        const rootStyle = {
-            padding: '2px 4px',
-              display: 'flex',
-              alignItems: 'center',
-              width: '400px',
+
+    handleSearch = () => {
+        if(this.verify()){
+            this.props.search(this.state.search)
         }
-        const inputStyle = {
-            marginLeft: '10px',
-            flex: 1,
-       }
-       const iconButtonStyle = {
-            padding: 10,
-       }
-       const dividerStyle = {
-            height: 28,
-            margin: 4,
-       }
+    }
+
+    verify = () => {
+        const words = this.state.search.split(",")
+        if(words.length == 1 && words[0]=="") {
+            this.setState({
+                open: true,
+                msg: "Please input city and country!"
+            })
+            return false
+        } else if(words.length == 1) {
+            this.setState({
+                open: true,
+                msg: "Please input country!"
+            })
+            return false
+        } else if(words.length == 2 && (words[0]==""||words[1]=="1")){
+            this.setState({
+                open: true,
+                msg: "input error!"
+            })
+        } else {
+            return true
+        }
+    }
+    handleClose = () => {
+        this.setState({
+            open: false
+        })
+    }
+
+    render() {
         return (
-            <Paper className="Search" component="form" style={rootStyle}>
+            <Paper className={Style.rootStyle} component="form">
                 <InputBase
-                    style={inputStyle}
-                    placeholder="Search Weather Forecaster"
+                    className={Style.inputStyle}
+                    placeholder="Search Weather Forecaster eg. London,UK"
                     inputProps={{ 'aria-label': 'search weather forecaster' }}
                     onChange={(e) => this.onChange(e)}
                 />
-                <Divider style={dividerStyle} orientation="vertical" />
-                <IconButton onClick={this.handleSearch} style={iconButtonStyle} aria-label="search">
+                <Divider className={Style.dividerStyle} orientation="vertical" />
+                <IconButton onClick={this.handleSearch} className={Style.iconButtonStyle} aria-label="search">
                     <SearchIcon />
                 </IconButton>
+                <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
+                    <Alert onClose={this.handleClose} severity="error" >
+                        {this.state.msg}
+                    </Alert>
+                </Snackbar>
+                {/*  */}
             </Paper>
         );
     }
