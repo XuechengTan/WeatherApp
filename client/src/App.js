@@ -48,14 +48,22 @@ class App extends React.Component {
         const body = {
             city: content 
         };
-        
+        //    current weather 
        axios.post("http://localhost:3001/testAPI",body).then((response)=>{
         console.log( response.data);
 
         this.handleWeather(response.data)
         this.handleMap(response.data)
-    
        });
+
+
+        // forecast
+       axios.post("http://localhost:3001/city",body).then((response)=>{
+        console.log( 0);
+        console.log( response.data.list[0]);
+
+       });
+
 
 
     }
