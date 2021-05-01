@@ -1,5 +1,10 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react'
+
+
+
+
+
 // import MapWithAMarker from 'google-map-react'
 class MapContainer extends React.Component {
     state = {
@@ -14,7 +19,7 @@ class MapContainer extends React.Component {
         console.log(this.googleMap)
     }
       
-    
+
         // console.log(this.state.location)
         // this.googleMap.map.Center(newLocation)
     // }

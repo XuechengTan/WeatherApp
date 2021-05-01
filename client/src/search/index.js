@@ -41,9 +41,6 @@ class Search extends React.Component {
   handleSearch = () => {
         if(this.verify()){
             this.props.search(this.state.search)
-                        
-        
-                
        
         }
     }
@@ -59,13 +56,15 @@ class Search extends React.Component {
                 msg: "Please input city and country!"
             })
             return false
-        } else if(words.length == 1) {
-            this.setState({
-                open: true,
-                msg: "Please input country!"
-            })
-            return false
-        } else if(words.length == 2 && (words[0]==""||words[1]=="1")){
+        }
+        //  else if(words.length == 1) {
+        //     this.setState({
+        //         open: true,
+        //         msg: "Please input country!"
+        //     })
+        //     return false
+        // } 
+        else if(words.length == 2 && (words[0]==""||words[1]=="1")){
             this.setState({
                 open: true,
                 msg: "input error!"
