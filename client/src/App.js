@@ -22,8 +22,10 @@ import WeatherForecast from'./weatherforecast/index'
 class App extends React.Component {
     state = {
         weather: null,
-        location:[-0.1257, 51.5085]
+        location:[-0.1257, 51.5085],
+        weatherforecast:null
     }
+
     render() {
         return (
             <div className="App">
@@ -35,12 +37,12 @@ class App extends React.Component {
                     </Grid>
                     <Grid item xs={6}>
                         <WeatherView ref= {c => this.weather = c}/>
+                        <WeatherForecast ref= {c => this. weatherforecast = c}/>
                     </Grid>
                 </Grid>
             </div>
         );
     }
-
 
     search = (content) => {
         console.log("content:"+content)
@@ -61,7 +63,7 @@ class App extends React.Component {
        axios.post("http://localhost:3001/city",body).then((response)=>{
         console.log( 0);
         console.log( response.data.list[0]);
-
+           this.handleWeatherF(response.data)
        });
 
 
@@ -69,10 +71,12 @@ class App extends React.Component {
     }
 
     handleWeather = (weather) => {
-        console.log(weather.main.temp+"123123123")
         this.weather.refresh(weather)
     }
 
+    handleWeatherF = (weather) => {
+        this.weatherforecast.refresh(weather)
+    }
 
     handleMap = (map) => {
         this.map.refresh([map.coord.lat,map.coord.lon])
