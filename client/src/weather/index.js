@@ -66,6 +66,7 @@ class Weather extends React.Component {
                     <br />
                     <span className={Style.weatherTitle}>Time:</span>
                     <span className={Style.weatherContent}> { this.formatDate(this.state.data.dt )}</span>
+
                 </div>
             );
         } 
