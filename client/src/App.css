@@ -18,10 +18,10 @@
   border-radius: 20px;
 }
 .Weather{
-  width: 400px;
-  height:fit-content;
+  width: 420px;
+  height:620px;
   background: rgba(40,44,52,0.7);
-  margin:0 auto;
+  margin:auto;
   border-radius: 20px;
   padding: 30px 30px;
   color: white;

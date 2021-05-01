@@ -46,6 +46,9 @@ class Weatherforecast extends React.Component {
                     <span className={Style.weatherContent}>Speed: {this.state.data.list[8].wind.speed}meter/sec</span>&emsp;
                     <span className={Style.weatherContent}>Direction: {this.state.data.list[8].wind.deg}(meteorological)</span>&emsp;
                     <br />
+                    <br/>
+                    <hr/>
+                    <br/>
                     <div className={Style.cityName}>48 Hours</div>
                     <div className={Style.weather}>
                         <div className={Style.weatherText}>
