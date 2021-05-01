@@ -28,6 +28,11 @@ class Weather extends React.Component {
             return (
                 <div className="Weather">
                     <div className={Style.cityName}>{this.state.data.name}</div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
                     <div className={Style.weather}>
                         <div className={Style.weatherText}>
                             <span className={Style.weatherMain}>{this.state.data.weather[0].main}</span><br />
@@ -50,7 +55,7 @@ class Weather extends React.Component {
                     <br />
                     <span className={Style.weatherTitle}>Clouds: </span>
                     <span className={Style.weatherContent}>Cloudiness: {this.state.data.clouds.all}%</span><br />
-                    {/* 
+                    {/*
                     <span className={Style.weatherTitle}>Rain: </span>
                     <span className={Style.weatherContent}> 1h: {this.state.data.rain['1h']}</span>&emsp;
                     <span className={Style.weatherContent}> 3h: {this.state.data.rain['3h']}</span>
