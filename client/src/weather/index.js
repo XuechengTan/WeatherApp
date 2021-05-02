@@ -3,7 +3,7 @@ import Search from '../search';
 import Style from './weather.module.css'
 class Weather extends React.Component {
     state = {
-        data: null
+        data: this.props.data
     }
     formatDate=(second) => {
         return new Date(parseInt(second) * 1000).Format("yyyy-MM-dd HH:mm:ss")
