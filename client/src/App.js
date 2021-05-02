@@ -73,62 +73,9 @@ class App extends React.Component {
         weatherforecast:null,
         location:null
     }
-     getLongitudeAndLatitude = () => {
-
-        //获取位置再得到城市先后顺序，通过Promise完成
-        return new Promise((resolve, reject) => {
-
-            navigator.geolocation.getCurrentPosition(
-                location => {
-
-                    //可以获取到的数据
-                    var result = "速度：" + location.coords.speed +
-                        "\n经度：" + location.coords.longitude +
-                        "\n纬度：" + location.coords.latitude +
-                        "\n准确度：" + location.coords.accuracy +
-                        "\n行进方向：" + location.coords.heading +
-                        "\n海拔：" + location.coords.altitude +
-                        "\n海拔准确度：" + location.coords.altitudeAccuracy +
-                        "\n时间戳：" + location.timestamp;
-
-                    // ToastAndroid.show("UTIl" + location.coords.longitude, ToastAndroid.SHORT);
-
-                    resolve([location.coords.longitude, location.coords.latitude]);
-                },
-                error => {
-                    // Alert.alert("获取位置失败：" + error, "")
-                    reject(error);
-                }
-            );
-        })
-    }
-
-    getCityLocation() {
-        let p =[]
-        let promise = new Promise((resolve, reject) => {
-
-           this.getLongitudeAndLatitude()
-                //获取经纬度的方法返回的是经纬度组成的数组
-                .then((locationArr) => {
-
-                    // Alert.alert("", "" + locationArr[1]);
-
-                    p[0] = locationArr[1];
-                    p[1] = locationArr[0]
-                    // console.log(p)
-                    this.componentDidUpdate(this.setState({ location: p }, () => console.log(this.state.location)))
-                    // console.log(this.state.location)
-                    return p
-                }).catch((data) => {
-
-            })
-
-        })
-    }
 
     render() {
-            console.log(this.state.location+"查询城市")
-        this.getLocation()
+            this.getLocation();
 
         return (
             <div className="App">
@@ -184,18 +131,6 @@ class App extends React.Component {
 
 
     }
-    // searchCity = (content) =>{
-    //     const body ={
-    //         lat: content[0],
-    //         lng :content[1]}
-    //
-    //         axios.post("http://localhost:3001/default",body).then((response)=>{
-    //             console.log( response.data.result);
-    //
-    //         });
-    //         // this.handleWeather(weather)
-    // }
-
     async getLocation(){
         await navigator.geolocation.getCurrentPosition(this.showPosition);
     }
@@ -204,7 +139,7 @@ class App extends React.Component {
         axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=d2ae3ac1f6ff5f27e6857a661328554d`).then((response)=>{
             console.log(response.data)
             this.handleWeather(response.data)
-            
+
         });
 
 
