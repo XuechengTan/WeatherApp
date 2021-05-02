@@ -96,14 +96,6 @@ const myLocation = getLocation();
 
 
 
-
-
-
-
-
-
-
-
 class App extends React.Component {
     state = {
         weather: null,
