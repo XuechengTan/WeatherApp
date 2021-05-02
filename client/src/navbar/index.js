@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className="Navbar">
       <Calender  />
-      <User />
+      {/*<User />*/}
       {/* <News /> */}
     </div>
   );
