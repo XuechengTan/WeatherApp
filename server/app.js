@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var cityRouter = require("./routes/city");
+var getweatherRouter = require("./routes/getweather");
+
 var app = express();
 
 // view engine setup
@@ -31,7 +33,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
-app.use('/city',cityRouter)
+app.use('/city',cityRouter);
+app.use('/getweather',getweatherRouter);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

@@ -1,10 +1,17 @@
+import axios from 'axios';
 import React from 'react';
 import Search from '../search';
 import Style from './weather.module.css'
+
+
+
+
+
 class Weather extends React.Component {
     state = {
-        data: null
-    }
+        data: null,
+     }
+
     formatDate=(second) => {
         return new Date(parseInt(second) * 1000).Format("yyyy-MM-dd HH:mm:ss")
     }
@@ -27,6 +34,7 @@ class Weather extends React.Component {
 
             return (
                 <div className="Weather">
+                   
                     <div className={Style.cityName}>{this.state.data.name}</div>
                     <br/>
                     <br/>
