@@ -10,7 +10,10 @@ import SearchView from './search/index'
 import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
+
 import WeatherF from'./forecast/index'
+
+
 
 
 
@@ -70,6 +73,7 @@ import WeatherF from'./forecast/index'
 class App extends React.Component {
     state = {
         weather: null,
+
         weatherForecast:null,
         location:null
     }
@@ -110,17 +114,17 @@ class App extends React.Component {
         //    search current weather
        axios.post("http://localhost:3001/testAPI",body).then((response)=>{
         console.log( response.data);
-            this.setState({weather: response.data})
-            this.handleWeather(this.state.weather)
-            this.handleMap(this.state.weather)
+        this.setState({weather:response.data})
+        this.handleWeather(this.state.weather)
+        this.handleMap(this.state.weather)
        });
 
 
         // forecast
        axios.post("http://localhost:3001/city",body).then((response)=>{
         console.log( response.data.list[0]);
-           this.setState({weatherForecast:response.data})
-           this.handleWeatherF(this.state.weatherForecast)
+           this.setState({weatherforecast:response.data})
+           this.handleWeatherF(this.state.weatherforecast)
        });
 
 
@@ -130,6 +134,20 @@ class App extends React.Component {
     async getLocation(){
         await navigator.geolocation.getCurrentPosition(this.showPosition);
     }
+    
+    // showPosition=(position)=>{
+    //     const dePos ={
+    //        lat : position.coords.latitude,
+    //        lng : position.coords.longitude
+    //     }
+    //     axios.post("http://localhost:3001/getweather",dePos).then((response)=>{
+    //            this.handleWeather(response.data)
+    //        });
+
+    //     axios.post("http://localhost:3001/getweatherDefault",dePos).then((response)=>{
+    //             this.handleWeatherF(response.data)
+    //     });
+    // }
 
     showPosition=(position)=>{
 
@@ -146,6 +164,8 @@ class App extends React.Component {
 
         });
     }
+
+
 
     handleWeather = (weather) => {
         this.weather.refresh(weather)

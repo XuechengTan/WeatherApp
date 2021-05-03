@@ -1,6 +1,12 @@
+import axios from 'axios';
 import React from 'react';
 import Search from '../search';
 import Style from './weather.module.css'
+
+
+
+
+
 class Weather extends React.Component {
     state = {
         data: this.props.data
@@ -27,6 +33,7 @@ class Weather extends React.Component {
 
             return (
                 <div className="Weather">
+                   
                     <div className={Style.cityName}>{this.state.data.name}</div>
                     <br/>
                     <br/>

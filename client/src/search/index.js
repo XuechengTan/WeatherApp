@@ -36,6 +36,7 @@ class Search extends React.Component {
   handleSearch = () => {
         if(this.verify()){
             this.props.search(this.state.search)
+       
         }
     }
 
@@ -51,13 +52,23 @@ class Search extends React.Component {
             })
             return false
         }
-        else if(words.length == 0) {
-            this.setState({
-                open: true,
-                msg: "Please input"
-            })
-            return false
-        }
+
+        // else if(words.length == 1) {
+        //     this.setState({
+        //         open: true,
+        //         msg: "Please input country!"
+        //     })
+        //     return false
+
+        // }
+
+        // else if(words.length == 0) {
+        //     this.setState({
+        //         open: true,
+        //         msg: "Please input"
+        //     })
+        //     return false
+        // }
         else if(words.length == 2 && (words[0]==""||words[1]=="1")){
             this.setState({
                 open: true,
