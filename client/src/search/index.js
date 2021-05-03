@@ -8,6 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import MuiAlert  from '@material-ui/lab/Alert'
 import Snackbar from '@material-ui/core/Snackbar';
 import axios from 'axios';
+import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
 
 
 
@@ -16,6 +17,7 @@ import axios from 'axios';
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
+
 class Search extends React.Component {
     state = {
         search: "",
@@ -62,13 +64,13 @@ class Search extends React.Component {
 
         // }
 
-        // else if(words.length == 0) {
-        //     this.setState({
-        //         open: true,
-        //         msg: "Please input"
-        //     })
-        //     return false
-        // }
+        else if(words.length == 0) {
+            this.setState({
+                open: true,
+                msg: "Please input"
+            })
+            return false
+        }
         else if(words.length == 2 && (words[0]==""||words[1]=="1")){
             this.setState({
                 open: true,
@@ -87,6 +89,9 @@ class Search extends React.Component {
 
         if(e.keyCode == 13) {
             this.handleSearch();
+            e.cancleBubble = true;
+            e.returnValue = false;
+            return false;
         }
     }
 
@@ -94,14 +99,18 @@ class Search extends React.Component {
 
         return (
             <Paper className={Style.rootStyle} component="form">
+
                 <InputBase
                     className={Style.inputStyle}
                     placeholder="Search Weather Forecaster eg. London"
                     inputProps={{ 'aria-label': 'search weather forecaster' }}
                     onChange={(e) => this.onChange(e)}
+                    onKeyDown={e=> this.onKeyDownchange(e)}
                 />
+                {/*prevent refresh*/}
+                <input style={{display:"none"}}></input>
                 <Divider className={Style.dividerStyle} orientation="vertical" />
-                <IconButton onClick={this.handleSearch} className={Style.iconButtonStyle} aria-label="search" className='postName'>
+                <IconButton onClick={this.handleSearch}  className={Style.iconButtonStyle} aria-label="search" className='postName'>
                     <SearchIcon />
                 </IconButton>
                 <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>
