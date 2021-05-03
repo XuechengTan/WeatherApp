@@ -12,22 +12,29 @@ import MapContainer from './map/index';
 import axios from 'axios';
 
 import WeatherF from'./forecast/index'
+import { Link, Route } from 'react-router-dom';
 
 class App extends React.Component {
     state = {
         weather: null,
         weatherForecast:null,
-        location:null
+        location:null,
+        errorCity: null
     }
 
     render() {
             this.getLocation();
         return (
+
             <div className="App">
                 <Navbar />
+                <Link to="/news">                
+                <div><h1>News</h1></div>
+                </Link>
+                <Route path="/">
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
-                        <SearchView search={this.search}/>
+                        <SearchView search={this.search} error={this.state.errorCity} />
 
                         <MapContainer ref= {c => this.map = c} />
 
@@ -41,6 +48,12 @@ class App extends React.Component {
                         <WeatherF ref= {c => this.weatherForecast = c}/>
                         </Grid>
                 </Grid>
+                </Route>
+                <Route path="/news">                
+                    <div>News 放在这</div>
+                </Route>
+
+
             </div>
         );
     }
@@ -54,10 +67,18 @@ class App extends React.Component {
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
+
+        if(response.data.hasOwnProperty("error")){
+            console.log(response.data.error);
+            this.setState({
+                errorCity: response.data.error
+              })
+        }  else{          
         console.log( response.data);
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
+        }
        });
 
         // forecast
@@ -80,13 +101,16 @@ class App extends React.Component {
            lat : position.coords.latitude,
            lng : position.coords.longitude
         }
+       
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
                this.handleWeather(response.data)
            });
 
+        
         axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
                 this.handleWeatherForecast (response.data)
         });
+        
     }
 
 

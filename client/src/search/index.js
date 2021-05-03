@@ -37,7 +37,7 @@ class Search extends React.Component {
   handleSearch = () => {
         if(this.verify()){
             this.props.search(this.state.search)
-       
+            
         }
     }
 
@@ -62,8 +62,16 @@ class Search extends React.Component {
         //     return false
 
         // }
+        else if(this.props.error != null) {
+            this.setState({
+                open: true,
+                msg: "你是大傻逼不!"
+            })
+            return false
 
-        else if(words.length === 0) {
+
+        else if(words.length == 0) {
+
             this.setState({
                 open: true,
                 msg: "Please input"
@@ -97,8 +105,9 @@ class Search extends React.Component {
     render() {
 
         return (
+            
             <Paper className={Style.rootStyle} component="form">
-
+                    {console.log("大傻逼："+this.props.error)}
                 <InputBase
                     className={Style.inputStyle}
                     placeholder="Search Weather Forecaster eg. London"
