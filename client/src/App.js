@@ -10,9 +10,10 @@ import SearchView from './search/index'
 import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
-import WeatherForecast from'./weatherforecast/index'
-import Geocode from "react-geocode";
-import WeatherF from'./weatherForecast/index'
+
+import WeatherF from'./forecast/index'
+
+
 
 
 
@@ -98,10 +99,6 @@ class App extends React.Component {
                     <Grid item xs={4}>
                         <WeatherF ref= {c => this. weatherForecast = c}/>
                         </Grid>
-                    <Grid item xs={4}>
-
-                    </Grid>
-
                 </Grid>
             </div>
         );
