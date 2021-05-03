@@ -4,8 +4,8 @@ import MapWithAMarker from 'google-map-react'
 import ReactDOM from "react-dom";
 // import React from "react";
 
-import { GoogleMap, StandaloneSearchBox, Marker } from "@react-google-maps/api";
-import axios from "axios";
+// import { GoogleMap, StandaloneSearchBox, Marker } from "@react-google-maps/api";
+// import axios from "axios";
 
 class MapContainer extends React.Component {
 
