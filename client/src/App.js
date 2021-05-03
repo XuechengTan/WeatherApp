@@ -10,7 +10,7 @@ import SearchView from './search/index'
 import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
-import WeatherF from'./weatherForecast/index'
+import WeatherF from'./forecast/index'
 
 
 
