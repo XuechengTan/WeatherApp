@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 // import React from "react";
 
 import { GoogleMap, StandaloneSearchBox, Marker } from "@react-google-maps/api";
+import axios from "axios";
 
 class MapContainer extends React.Component {
 
@@ -28,23 +29,10 @@ class MapContainer extends React.Component {
 
             navigator.geolocation.getCurrentPosition(
                 location => {
-
-                    //可以获取到的数据
-                    var result = "速度：" + location.coords.speed +
-                        "\n经度：" + location.coords.longitude +
-                        "\n纬度：" + location.coords.latitude +
-                        "\n准确度：" + location.coords.accuracy +
-                        "\n行进方向：" + location.coords.heading +
-                        "\n海拔：" + location.coords.altitude +
-                        "\n海拔准确度：" + location.coords.altitudeAccuracy +
-                        "\n时间戳：" + location.timestamp;
-
-                    // ToastAndroid.show("UTIl" + location.coords.longitude, ToastAndroid.SHORT);
-
                     resolve([location.coords.longitude, location.coords.latitude]);
                 },
                 error => {
-                    // Alert.alert("获取位置失败：" + error, "")
+
                     reject(error);
                 }
             );
@@ -56,10 +44,10 @@ class MapContainer extends React.Component {
         let promise = new Promise((resolve, reject) => {
 
             this.getLongitudeAndLatitude()
-                //获取经纬度的方法返回的是经纬度组成的数组
+                //The method to get the latitude and longitude returns an array of latitude and longitude
                 .then((locationArr) => {
 
-                    // Alert.alert("", "" + locationArr[1]);
+
 
                     p[0] = locationArr[1];
                     p[1] = locationArr[0]
@@ -74,16 +62,21 @@ class MapContainer extends React.Component {
         })
     }
 
+
+
+
+
+
     render() {
         this.getCityLocation()
         return (
             <div className="Map">
-                {console.log(this.state.location + "在MAP中的")}
+                {/*{console.log(this.state.location + "在MAP中的")}*/}
                 <GoogleMapReact
                     ref={c => this.googleMap = c}
                     bootstrapURLKeys={ {key: "AIzaSyDOr6t4ExGs3TE8CTAGsI5tk3Zpor_Egow"} }
                     defaultZoom={11}
-                    defaultCenter={this.state.location}
+                    defaultCenter={[1,1]}
                     center={this.state.location}
                     yesIWantToUseGoogleMapApiInternals
                     currentLatLng={this.state.location}
