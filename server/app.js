@@ -12,6 +12,8 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var cityRouter = require("./routes/city");
 var getweatherRouter = require("./routes/getweather");
+var getweatherDefaultRouter = require("./routes/getweatherDefault");
+
 
 var app = express();
 
@@ -35,6 +37,7 @@ app.use('/users', usersRouter);
 app.use("/testAPI", testAPIRouter);
 app.use('/city',cityRouter);
 app.use('/getweather',getweatherRouter);
+app.use('/getweatherDefault',getweatherDefaultRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
