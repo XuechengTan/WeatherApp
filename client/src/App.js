@@ -14,63 +14,6 @@ import axios from 'axios';
 import WeatherF from'./forecast/index'
 import { Link, Route } from 'react-router-dom';
 
-
-
-
-
-
-// const weather = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":283.7,"feels_like":282.12,"temp_min":283.15,"temp_max":284.82,"pressure":1012,"humidity":50},"visibility":10000,"wind":{"speed":4.63,"deg":340},"clouds":{"all":99},"dt":1619714127,"sys":{"type":1,"id":1414,"country":"GB","sunrise":1619670947,"sunset":1619723979},"timezone":3600,"id":2643743,"name":"London","cod":200}
-
-// const getLocation = () =>{
-//
-//     const geolocation = navigator.geolocation;
-//     if (geolocation) {
-//         geolocation.getCurrentPosition(findLocal, showEror);
-//     }
-//     function findLocal(position){
-//         pos.lat = position.coords.latitude;
-//         lat = position.coords.latitude;
-//         pos.lng = position.coords.longitude;
-//         lon = position.coords.longitude;
-//     }
-//     function showEror(){console.log(Error)}
-//     return pos;
-// };
-//
-// const myLocation = getLocation();
-// function getPosition() {
-//     // Simple wrapper
-//     return new Promise((res, rej) => {
-//         navigator.geolocation.getCurrentPosition(res, rej);
-//     });
-// }
-//
-// async function main() {
-//     var position = await getPosition() ;// wait for getPosition to complete
-//
-//     // const pos = []
-//     pos.lat = position.coords.latitude
-//     pos.lng = position.coords.longitude
-//     console.log(pos)
-//     return pos
-// }
-// const myLocation = main();
-//  function componentDidMount() {
-//     let p = new Array(2);
-//     navigator.geolocation.getCurrentPosition(function(position) {
-//         console.log("Latitude is :", position.coords.latitude);
-//         console.log("Longitude is :", position.coords.longitude);
-//         p[0] = (position.coords.latitude)
-//         p[1]= (position.coords.longitude)
-//         console.log(p)
-//     });
-//
-//      console.log(p+"2")
-//     return p
-// }
-//  const myLocation = componentDidMount();
-// let p = [];
-
 class App extends React.Component {
     state = {
         weather: null,
@@ -102,7 +45,7 @@ class App extends React.Component {
 
                     </Grid>
                     <Grid item xs={4}>
-                        <WeatherF ref= {c => this. weatherForecast = c}/>
+                        <WeatherF ref= {c => this.weatherForecast = c}/>
                         </Grid>
                 </Grid>
                 </Route>
