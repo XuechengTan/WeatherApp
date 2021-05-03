@@ -12,6 +12,8 @@ import MapContainer from './map/index';
 import axios from 'axios';
 import WeatherForecast from'./weatherforecast/index'
 import Geocode from "react-geocode";
+import WeatherF from'./weatherForecast/index'
+
 
 
 
@@ -70,7 +72,8 @@ import Geocode from "react-geocode";
 class App extends React.Component {
     state = {
         weather: null,
-        weatherforecast:null,
+
+        weatherForecast:null,
         location:null
     }
 
@@ -93,7 +96,7 @@ class App extends React.Component {
 
                     </Grid>
                     <Grid item xs={4}>
-                        <WeatherForecast ref= {c => this. weatherforecast = c}/>
+                        <WeatherF ref= {c => this. weatherForecast = c}/>
                         </Grid>
                     <Grid item xs={4}>
 
@@ -122,7 +125,6 @@ class App extends React.Component {
 
         // forecast
        axios.post("http://localhost:3001/city",body).then((response)=>{
-        console.log( 0);
         console.log( response.data.list[0]);
            this.setState({weatherforecast:response.data})
            this.handleWeatherF(this.state.weatherforecast)
@@ -173,7 +175,7 @@ class App extends React.Component {
     }
 
     handleWeatherF = (weather) => {
-        this.weatherforecast.refresh(weather)
+        this.weatherForecast.refresh(weather)
     }
 
     handleMap = (map) => {

@@ -9,7 +9,6 @@ import Style from './weather.module.css'
 
 class Weather extends React.Component {
     state = {
-
         data: this.props.data
     }
     formatDate=(second) => {

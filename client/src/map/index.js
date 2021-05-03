@@ -1,31 +1,15 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react'
+import MapWithAMarker from 'google-map-react'
+import ReactDOM from "react-dom";
+// import React from "react";
 
-
-
-
-
-// import MapWithAMarker from 'google-map-react'
-
-// const getLocation = () =>{
-//     const pos = {};
-//     const geolocation = navigator.geolocation;
-//     if (geolocation) {
-//         geolocation.getCurrentPosition(findLocal, showEror);
-//     }
-//     function findLocal(position){
-//         pos.lat = position.coords.latitude;
-//         pos.lng = position.coords.longitude;
-//     }
-//     function showEror(){console.log(Error)}
-//     return pos;
-// };
-// const myLocation = getLocation();
+import { GoogleMap, StandaloneSearchBox, Marker } from "@react-google-maps/api";
+import axios from "axios";
 
 class MapContainer extends React.Component {
 
     state = {
-
         location: this.props.location,
 
     }
@@ -37,8 +21,6 @@ class MapContainer extends React.Component {
         })
         console.log(newLocation)
     }
-      
-
 
     getLongitudeAndLatitude = () => {
 
