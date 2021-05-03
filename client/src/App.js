@@ -95,10 +95,6 @@ class App extends React.Component {
                     <Grid item xs={4}>
                         <WeatherF ref= {c => this. weatherForecast = c}/>
                         </Grid>
-                    <Grid item xs={4}>
-
-                    </Grid>
-
                 </Grid>
             </div>
         );
