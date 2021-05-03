@@ -14,8 +14,6 @@ router.post("/", function(req, res) {
               console.log("-------------------")
               res.json(response.data);
           });
- 
-
 });
 
 

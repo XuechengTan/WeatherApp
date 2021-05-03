@@ -73,14 +73,12 @@ import WeatherF from'./forecast/index'
 class App extends React.Component {
     state = {
         weather: null,
-
         weatherForecast:null,
         location:null
     }
 
     render() {
             this.getLocation();
-
         return (
             <div className="App">
                 <Navbar />
@@ -112,19 +110,18 @@ class App extends React.Component {
             city: content
         };
         //    search current weather
-       axios.post("http://localhost:3001/testAPI",body).then((response)=>{
+       axios.post("http://localhost:3001/weather",body).then((response)=>{
         console.log( response.data);
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
        });
 
-
         // forecast
-       axios.post("http://localhost:3001/city",body).then((response)=>{
+       axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
         console.log( response.data.list[0]);
            this.setState({weatherforecast:response.data})
-           this.handleWeatherF(this.state.weatherforecast)
+           this.handleWeatherForecast (this.state.weatherforecast)
        });
 
 
@@ -132,46 +129,29 @@ class App extends React.Component {
     }
 
     async getLocation(){
-        await navigator.geolocation.getCurrentPosition(this.showPosition);
+        await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
     
-    // showPosition=(position)=>{
-    //     const dePos ={
-    //        lat : position.coords.latitude,
-    //        lng : position.coords.longitude
-    //     }
-    //     axios.post("http://localhost:3001/getweather",dePos).then((response)=>{
-    //            this.handleWeather(response.data)
-    //        });
+    showDefaultWeather=(position)=>{
+        const dePos ={
+           lat : position.coords.latitude,
+           lng : position.coords.longitude
+        }
+        axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
+               this.handleWeather(response.data)
+           });
 
-    //     axios.post("http://localhost:3001/getweatherDefault",dePos).then((response)=>{
-    //             this.handleWeatherF(response.data)
-    //     });
-    // }
-
-    showPosition=(position)=>{
-
-        axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=d2ae3ac1f6ff5f27e6857a661328554d`).then((response)=>{
-            console.log(response.data)
-            this.handleWeather(response.data)
-
-        });
-
-
-        axios.get(`http://api.openweathermap.org/data/2.5/forecast?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=d2ae3ac1f6ff5f27e6857a661328554d`).then((response)=>{
-            console.log(response.data)
-            this.handleWeatherF(response.data)
-
+        axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
+                this.handleWeatherForecast (response.data)
         });
     }
-
 
 
     handleWeather = (weather) => {
         this.weather.refresh(weather)
     }
 
-    handleWeatherF = (weather) => {
+    handleWeatherForecast = (weather) => {
         this.weatherForecast.refresh(weather)
     }
 
