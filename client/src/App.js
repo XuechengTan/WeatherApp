@@ -10,12 +10,12 @@ import SearchView from './search/index'
 import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
-import WeatherForecast from'./weatherforecast/index'
-import Geocode from "react-geocode";
+import WeatherF from'./weatherForecast/index'
 
 
 
-const weather = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":283.7,"feels_like":282.12,"temp_min":283.15,"temp_max":284.82,"pressure":1012,"humidity":50},"visibility":10000,"wind":{"speed":4.63,"deg":340},"clouds":{"all":99},"dt":1619714127,"sys":{"type":1,"id":1414,"country":"GB","sunrise":1619670947,"sunset":1619723979},"timezone":3600,"id":2643743,"name":"London","cod":200}
+
+// const weather = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"main":"Clouds","description":"overcast clouds","icon":"04d"}],"base":"stations","main":{"temp":283.7,"feels_like":282.12,"temp_min":283.15,"temp_max":284.82,"pressure":1012,"humidity":50},"visibility":10000,"wind":{"speed":4.63,"deg":340},"clouds":{"all":99},"dt":1619714127,"sys":{"type":1,"id":1414,"country":"GB","sunrise":1619670947,"sunset":1619723979},"timezone":3600,"id":2643743,"name":"London","cod":200}
 
 // const getLocation = () =>{
 //
@@ -69,8 +69,8 @@ const weather = {"coord":{"lon":-0.1257,"lat":51.5085},"weather":[{"id":804,"mai
 
 class App extends React.Component {
     state = {
-        weather: weather,
-        weatherforecast:null,
+        weather: null,
+        weatherForecast:null,
         location:null
     }
 
@@ -93,7 +93,7 @@ class App extends React.Component {
 
                     </Grid>
                     <Grid item xs={4}>
-                        <WeatherForecast ref= {c => this. weatherforecast = c}/>
+                        <WeatherF ref= {c => this. weatherForecast = c}/>
                         </Grid>
                     <Grid item xs={4}>
 
@@ -114,26 +114,27 @@ class App extends React.Component {
         //    search current weather
        axios.post("http://localhost:3001/testAPI",body).then((response)=>{
         console.log( response.data);
-        this.setState({weather:response.data})
-        this.handleWeather(this.state.weather)
-        this.handleMap(this.state.weather)
+            this.setState({weather: response.data})
+            this.handleWeather(this.state.weather)
+            this.handleMap(this.state.weather)
        });
 
 
         // forecast
        axios.post("http://localhost:3001/city",body).then((response)=>{
-        console.log( 0);
         console.log( response.data.list[0]);
-           this.setState({weatherforecast:response.data})
-           this.handleWeatherF(this.state.weatherforecast)
+           this.setState({weatherForecast:response.data})
+           this.handleWeatherF(this.state.weatherForecast)
        });
 
 
 
     }
+
     async getLocation(){
         await navigator.geolocation.getCurrentPosition(this.showPosition);
     }
+
     showPosition=(position)=>{
 
         axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=d2ae3ac1f6ff5f27e6857a661328554d`).then((response)=>{
@@ -149,12 +150,13 @@ class App extends React.Component {
 
         });
     }
+
     handleWeather = (weather) => {
         this.weather.refresh(weather)
     }
 
     handleWeatherF = (weather) => {
-        this.weatherforecast.refresh(weather)
+        this.weatherForecast.refresh(weather)
     }
 
     handleMap = (map) => {

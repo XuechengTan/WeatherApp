@@ -1,7 +1,7 @@
 import React from 'react';
 import Search from '../search';
 import Style from './weather.module.css'
-class Weatherforecast extends React.Component {
+class WeatherForecast extends React.Component {
     state = {
         data: null
     }
@@ -87,4 +87,4 @@ Date.prototype.Format = function (fmt) {
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-export default Weatherforecast;
+export default WeatherForecast;
