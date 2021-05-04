@@ -12,15 +12,15 @@ import MapContainer from './map/index';
 import axios from 'axios';
 
 import WeatherF from'./forecast/index'
-import { Link, Route } from 'react-router-dom';
+import { Link, Route,Redirect } from 'react-router-dom';
 
 class App extends React.Component {
     state = {
         weather: null,
         weatherForecast:null,
         location:null,
-        errorCity: null
-    }
+        fail: null
+       }
 
     render() {
             this.getLocation();
@@ -28,13 +28,12 @@ class App extends React.Component {
 
             <div className="App">
                 <Navbar />
-                <Link to="/news">                
-                <div><h1>News</h1></div>
-                </Link>
-                <Route path="/">
+
+               
+
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
-                        <SearchView search={this.search} error={this.state.errorCity} />
+                        <SearchView search={this.search}  />
 
                         <MapContainer ref= {c => this.map = c} />
 
@@ -48,10 +47,7 @@ class App extends React.Component {
                         <WeatherF ref= {c => this.weatherForecast = c}/>
                         </Grid>
                 </Grid>
-                </Route>
-                <Route path="/news">                
-                    <div>News 放在这</div>
-                </Route>
+             
 
 
             </div>
@@ -67,26 +63,28 @@ class App extends React.Component {
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
+        if(response.data == "failed"){
+            window.alert("Please input right city name!")
+        }else{
 
-        if(response.data.hasOwnProperty("error")){
-            console.log(response.data.error);
-            this.setState({
-                errorCity: response.data.error
-              })
-        }else {
-            console.log(response.data);
-            this.setState({weather: response.data})
-            this.handleWeather(this.state.weather)
-            this.handleMap(this.state.weather)
+        console.log( response.data);
+        this.setState({weather:response.data})
+        this.handleWeather(this.state.weather)
+        this.handleMap(this.state.weather)
+        axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
+            console.log( response.data.list[0]);
+               this.setState({weatherforecast:response.data})
+               this.handleWeatherForecast (this.state.weatherforecast)
+           });
         }
        });
 
-        //forecast
-       axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
-        console.log( response.data.list[0]);
-           this.setState({weatherforecast:response.data})
-           this.handleWeatherForecast (this.state.weatherforecast)
-       });
+        // forecast
+    //    axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
+    //     console.log( response.data.list[0]);
+    //        this.setState({weatherforecast:response.data})
+    //        this.handleWeatherForecast (this.state.weatherforecast)
+    //    });
 
 
 
