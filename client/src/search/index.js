@@ -51,15 +51,15 @@ class Search extends React.Component {
             return false
         }
 
-        else if(words.length == 1) {
-            this.setState({
-                open: true,
-                msg: "Please input country!"
-            })
-            return false
-
-        }
-        else if(words.length == 0) {
+        // else if(words.length === 1) {
+        //     this.setState({
+        //         open: true,
+        //         msg: "Please input country!"
+        //     })
+        //     return false
+        //
+        // }
+        else if(words.length === 0) {
 
             this.setState({
                 open: true,
