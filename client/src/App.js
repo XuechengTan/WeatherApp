@@ -73,15 +73,15 @@ class App extends React.Component {
             this.setState({
                 errorCity: response.data.error
               })
-        }  else{          
-        console.log( response.data);
-        this.setState({weather:response.data})
-        this.handleWeather(this.state.weather)
-        this.handleMap(this.state.weather)
+        }else {
+            console.log(response.data);
+            this.setState({weather: response.data})
+            this.handleWeather(this.state.weather)
+            this.handleMap(this.state.weather)
         }
        });
 
-        // forecast
+        //forecast
        axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
         console.log( response.data.list[0]);
            this.setState({weatherforecast:response.data})

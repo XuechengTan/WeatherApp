@@ -68,7 +68,7 @@ class Search extends React.Component {
                 msg: "你是大傻逼不!"
             })
             return false
-
+        }
 
         else if(words.length == 0) {
 
