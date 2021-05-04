@@ -1,8 +1,7 @@
 
 
-import Grid from '@material-ui/core/Grid'
+import {Grid,AppBar} from '@material-ui/core'
 import './App.css';
-
 import './App.css';
 import React from 'react';
 import Navbar from './navbar/index'
@@ -12,7 +11,6 @@ import MapContainer from './map/index';
 import axios from 'axios';
 import News from './news/index';
 import WeatherF from'./forecast/index'
-import { Link, Route,Redirect } from 'react-router-dom';
 
 class App extends React.Component {
     state = {
@@ -26,26 +24,30 @@ class App extends React.Component {
             this.getLocation();
         return (
             <div className="App">
-                <Navbar />
+                <AppBar>
+                    <Navbar />
+                </AppBar>
+
 
                 <Grid container spacing={3}>
-                    <Grid item xs={4}>
-                        <SearchView search={this.search}  />
-
+                    <Grid item sm={4}>
+                        <SearchView search={this.search}/>
                         <MapContainer ref= {c => this.map = c} />
-
                     </Grid>
-                    <Grid item xs={4}>
+
+                    <Grid item sm={3}>
                         <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
-
-
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item sm={3}>
                         <WeatherF ref= {c => this.weatherForecast = c}/>
-                        </Grid>
+                    </Grid>
+                    <Grid item sm={12}>
+                        <News ref= {c => this.news = c} />
+                    </Grid>
+
                 </Grid>
              
-                <News ref= {c => this.news = c} /> 
+
 
             </div>                     
         );
@@ -60,7 +62,7 @@ class App extends React.Component {
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
-        if(response.data == "failed"){
+        if(response.data === "failed"){
             window.alert("Please input right city name!")
         }else{
 
