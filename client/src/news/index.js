@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from '../search/index';
 import Style from './news.module.css'
 //Once put in the city name to be searched, the entire url link of news page is settled down
 //We can embeded the external webpage into our waether app then
@@ -24,7 +23,7 @@ class News extends React.Component {
 
         return (
             <div>
-                <iframe className={Style.newsStyle} src={this.state.newsSrc} >
+                <iframe title={"abc"} className={Style.newsStyle} src={this.state.newsSrc} >
 
                 </iframe>
             
