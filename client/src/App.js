@@ -25,11 +25,8 @@ class App extends React.Component {
     render() {
             this.getLocation();
         return (
-
             <div className="App">
                 <Navbar />
-
-               
 
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
@@ -48,9 +45,9 @@ class App extends React.Component {
                         </Grid>
                 </Grid>
              
-
                 <News ref= {c => this.news = c} /> 
-            </div>
+
+            </div>                     
         );
     }
 
