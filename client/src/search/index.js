@@ -41,9 +41,6 @@ class Search extends React.Component {
         }
     }
 
-
-
-
     verify = () => {
         const words = this.state.search
         if(words.length === 1 && words[0]==="") {
@@ -54,22 +51,14 @@ class Search extends React.Component {
             return false
         }
 
-        // else if(words.length == 1) {
-        //     this.setState({
-        //         open: true,
-        //         msg: "Please input country!"
-        //     })
-        //     return false
-
-        // }
-        else if(this.props.error != null) {
+        else if(words.length == 1) {
             this.setState({
                 open: true,
-                msg: "你是大傻逼不!"
+                msg: "Please input country!"
             })
             return false
 
-
+        }
         else if(words.length == 0) {
 
             this.setState({
@@ -107,7 +96,7 @@ class Search extends React.Component {
         return (
             
             <Paper className={Style.rootStyle} component="form">
-                    {console.log("大傻逼："+this.props.error)}
+                    
                 <InputBase
                     className={Style.inputStyle}
                     placeholder="Search Weather Forecaster eg. London"

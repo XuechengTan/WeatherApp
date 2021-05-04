@@ -28,7 +28,6 @@ class Weather extends React.Component {
         } else {
             const weatherIconUrl = "http://openweathermap.org/img/w/" + this.state.data.weather[0].icon + ".png"
             
-
             return (
                 <div className="Weather">
                    
