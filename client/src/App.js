@@ -40,8 +40,6 @@ class App extends React.Component {
                     </Grid>
                     <Grid item xs={4}>
                         <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
-
-
                     </Grid>
                     <Grid item xs={4}>
                         <WeatherF ref= {c => this.weatherForecast = c}/>
@@ -63,7 +61,7 @@ class App extends React.Component {
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
-        if(response.data == "failed"){
+        if(response.data === "failed"){
             window.alert("Please input right city name!")
         }else{
 
@@ -71,6 +69,7 @@ class App extends React.Component {
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
+            // forecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
                this.setState({weatherforecast:response.data})
@@ -78,16 +77,6 @@ class App extends React.Component {
            });
         }
        });
-
-        // forecast
-    //    axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
-    //     console.log( response.data.list[0]);
-    //        this.setState({weatherforecast:response.data})
-    //        this.handleWeatherForecast (this.state.weatherforecast)
-    //    });
-
-
-
     }
 
     async getLocation(){
@@ -123,10 +112,6 @@ class App extends React.Component {
     handleMap = (map) => {
         this.map.refresh([map.coord.lat,map.coord.lon])
     }
-
-
-
-
 }
 
 export default App;
