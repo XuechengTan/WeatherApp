@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Style from './search.module.css'
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -7,8 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 import MuiAlert  from '@material-ui/lab/Alert'
 import Snackbar from '@material-ui/core/Snackbar';
-import axios from 'axios';
-import {onHidden} from "web-vitals/dist/modules/lib/onHidden";
+
 
 
 
@@ -42,12 +41,9 @@ class Search extends React.Component {
         }
     }
 
-
-
-
     verify = () => {
         const words = this.state.search
-        if(words.length == 1 && words[0]=="") {
+        if(words.length === 1 && words[0]==="") {
             this.setState({
                 open: true,
                 msg: "Please input a city"
@@ -55,30 +51,23 @@ class Search extends React.Component {
             return false
         }
 
-        // else if(words.length == 1) {
-        //     this.setState({
-        //         open: true,
-        //         msg: "Please input country!"
-        //     })
-        //     return false
-
-        // }
-        else if(this.props.error != null) {
+        else if(words.length == 1) {
             this.setState({
                 open: true,
-                msg: "你是大傻逼不!"
+                msg: "Please input country!"
             })
             return false
 
         }
-        else if(words.length == 0) {
+      
+        else if(words.length === 0) {
             this.setState({
                 open: true,
                 msg: "Please input"
             })
             return false
         }
-        else if(words.length == 2 && (words[0]==""||words[1]=="1")){
+        else if(words.length === 2 && (words[0]===""||words[1]==="1")){
             this.setState({
                 open: true,
                 msg: "input error!"
@@ -94,7 +83,7 @@ class Search extends React.Component {
     }
     onKeyDownchange =(e) => {
 
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             this.handleSearch();
             e.cancleBubble = true;
             e.returnValue = false;
@@ -107,7 +96,7 @@ class Search extends React.Component {
         return (
             
             <Paper className={Style.rootStyle} component="form">
-                    {console.log("大傻逼："+this.props.error)}
+                    
                 <InputBase
                     className={Style.inputStyle}
                     placeholder="Search Weather Forecaster eg. London"
@@ -118,7 +107,7 @@ class Search extends React.Component {
                 {/*prevent refresh*/}
                 <input style={{display:"none"}}></input>
                 <Divider className={Style.dividerStyle} orientation="vertical" />
-                <IconButton onClick={this.handleSearch}  className={Style.iconButtonStyle} aria-label="search" className='postName'>
+                <IconButton onClick={this.handleSearch}  className={Style.iconButtonStyle} aria-label="search" >
                     <SearchIcon />
                 </IconButton>
                 <Snackbar open={this.state.open} autoHideDuration={2000} onClose={this.handleClose} anchorOrigin={{ vertical: 'top', horizontal: 'center' }}>

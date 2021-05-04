@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from '../search';
 import Style from './weather.module.css'
 class WeatherForecast extends React.Component {
     state = {
@@ -34,7 +33,7 @@ class WeatherForecast extends React.Component {
                             <span className={Style.weatherMain}>{this.state.data.list[8].weather[0].main}</span><br />
                             <span className={Style.weatherDescription}>{this.state.data.list[8].weather[0].description}</span>
                         </div>
-                        <img className={Style.weatherIcon} src={weatherIconUrl24} width="100" height="100"/>
+                        <img alt={""} className={Style.weatherIcon} src={weatherIconUrl24} width="100" height="100"/>
                     </div>
                     <span className={Style.weatherTitle}>Temperature:</span><br />
                     <span className={Style.weatherContent}>AVG: {this.formatTemperature(this.state.data.list[8].main.temp) }&emsp; MIN: {this.formatTemperature(this.state.data.list[8].main.temp_min) }&emsp; MAX: {this.formatTemperature(this.state.data.list[8].main.temp_max)}</span><br />
@@ -55,7 +54,7 @@ class WeatherForecast extends React.Component {
                             <span className={Style.weatherMain}>{this.state.data.list[16].weather[0].main}</span><br />
                             <span className={Style.weatherDescription}>{this.state.data.list[16].weather[0].description}</span>
                         </div>
-                        <img className={Style.weatherIcon} src={weatherIconUrl48} width="100" height="100"/>
+                        <img alt={""} className={Style.weatherIcon} src={weatherIconUrl48} width="100" height="100"/>
                     </div>
                     <span className={Style.weatherTitle}>Temperature:</span><br />
                     <span className={Style.weatherContent}>AVG: {this.formatTemperature(this.state.data.list[16].main.temp) }&emsp; MIN: {this.formatTemperature(this.state.data.list[16].main.temp_min) }&emsp; MAX: {this.formatTemperature(this.state.data.list[16].main.temp_max)}</span><br />
@@ -72,6 +71,7 @@ class WeatherForecast extends React.Component {
         } 
     }
 }
+
 Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,
@@ -87,4 +87,5 @@ Date.prototype.Format = function (fmt) {
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
 export default WeatherForecast;

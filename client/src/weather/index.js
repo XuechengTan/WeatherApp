@@ -1,6 +1,4 @@
-import axios from 'axios';
 import React from 'react';
-import Search from '../search';
 import Style from './weather.module.css'
 
 
@@ -30,7 +28,6 @@ class Weather extends React.Component {
         } else {
             const weatherIconUrl = "http://openweathermap.org/img/w/" + this.state.data.weather[0].icon + ".png"
             
-
             return (
                 <div className="Weather">
                    
@@ -45,7 +42,7 @@ class Weather extends React.Component {
                             <span className={Style.weatherMain}>{this.state.data.weather[0].main}</span><br />
                             <span className={Style.weatherDescription}>{this.state.data.weather[0].description}</span>
                         </div>
-                        <img className={Style.weatherIcon} src={weatherIconUrl} width="100" height="100"/>
+                        <img alt={""}className={Style.weatherIcon} src={weatherIconUrl} width="100" height="100"/>
                     </div>
                     <span className={Style.weatherTitle}>Temperature:</span><br />
                     <span className={Style.weatherContent}>AVG: {this.formatTemperature(this.state.data.main.temp) }&emsp; MIN: {this.formatTemperature(this.state.data.main.temp_min) }&emsp; MAX: {this.formatTemperature(this.state.data.main.temp_max)}</span><br />
@@ -84,6 +81,8 @@ class Weather extends React.Component {
         } 
     }
 }
+
+
 Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,
