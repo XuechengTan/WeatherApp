@@ -54,7 +54,6 @@ class App extends React.Component {
 
     search = (content) => {
         console.log("content:"+content)
-        this.handleNews(content)
         const body = {
             city: content
         };
@@ -68,6 +67,8 @@ class App extends React.Component {
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
+        this.handleNews(content)
+
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
                this.setState({weatherforecast:response.data})
@@ -75,14 +76,6 @@ class App extends React.Component {
            });
         }
        });
-
-        // forecast
-    //    axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
-    //     console.log( response.data.list[0]);
-    //        this.setState({weatherforecast:response.data})
-    //        this.handleWeatherForecast (this.state.weatherforecast)
-    //    });
-
 
 
     }

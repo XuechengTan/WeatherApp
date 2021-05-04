@@ -4,15 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
+var mongoose = require('mongoose');
+const checkCity = require('./models/init')
 
 
 
-
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
 var weatherRouter = require("./routes/weather");
 var weatherForecastRouter = require("./routes/weatherForecast");
-
 var defaultWeatherRouter = require("./routes/defaultWeather");
 var defaultWeatherForecastRouter = require("./routes/defaultWeatherForecast");
 
@@ -34,8 +32,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// app.use('/', indexRouter);
-// app.use('/users', usersRouter);
+
 app.use("/weather", weatherRouter);
 app.use('/weatherForecast',weatherForecastRouter);
 app.use('/defaultWeather',defaultWeatherRouter);
@@ -55,6 +52,17 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+// connect database
+mongoose.connect('mongodb://localhost:27017/CityName');
+mongoose.connection.on('open',function (error) {
+    if(error){
+    console.log("failed")
+    }else{
+        console.log("successfull")
+    }
+})
 
 
 
