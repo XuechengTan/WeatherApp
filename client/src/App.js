@@ -10,7 +10,7 @@ import SearchView from './search/index'
 import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
-
+import News from './news/index';
 import WeatherF from'./forecast/index'
 import { Link, Route,Redirect } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ class App extends React.Component {
                 </Grid>
              
 
-
+                <News ref= {c => this.news = c} /> 
             </div>
         );
     }
@@ -57,7 +57,7 @@ class App extends React.Component {
 
     search = (content) => {
         console.log("content:"+content)
-
+        this.handleNews(content)
         const body = {
             city: content
         };
@@ -102,6 +102,7 @@ class App extends React.Component {
        
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
                this.handleWeather(response.data)
+               this.handleNews(response.data.name)
            });
 
         
@@ -123,7 +124,9 @@ class App extends React.Component {
     handleMap = (map) => {
         this.map.refresh([map.coord.lat,map.coord.lon])
     }
-
+    handleNews = (news) => {
+        this.news.refresh(news)
+    }
 
 
 
