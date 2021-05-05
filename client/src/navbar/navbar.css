@@ -1,23 +1,50 @@
 .Navbar {
 width: 100%;
-height: 60px;
+height: 4em;
 background: rgba(40,44,52,0.7);
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
 }
 .Calender {
-font-size: 20px;
+    font-family: 'baby';
+font-size: 2em;
 color: #FFFFFF;
 display: inline-block;
 line-height: 60px;
 margin-left: 50px;
 }
-.User {
-font-size: 20px;
-color: #FFFFFF;
-display: inline-block;
-line-height: 60px;
-float: right;
-margin-right: 30px;
-}
+
 .form-dialog-title {
     text-align: center;
+}
+
+
+.project {
+    font-family: 'baby';
+
+    font-size: 2em;
+    color: #FFFFFF;
+    display: inline-block;
+    line-height: 60px;
+    margin-right: 50px
+}
+.title{
+    font-family: 'YaHeiConsolasHybrid';
+    font-size: 4em;
+    color: #FFFFFF;
+    display: inline-block;
+    line-height: 60px;
+    margin-right: 50px
+}
+
+@font-face{
+    font-family:'YaHeiConsolasHybrid';
+    src:url('./../font/font22501/Apocalypse\ Grunge.ttf'); 
+}
+
+@font-face{
+    font-family:'baby';
+    src:url('./../font/BabySchoolItalic.ttf'); 
 }

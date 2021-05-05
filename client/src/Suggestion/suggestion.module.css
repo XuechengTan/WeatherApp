@@ -5,6 +5,7 @@
     align-content: space-between;
 }
 .weatherText{
+    font-family: 'city';
     width: 100%;
     align-content: space-between;
 }
