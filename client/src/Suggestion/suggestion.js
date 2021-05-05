@@ -19,7 +19,6 @@ class Suggestion extends React.Component {
         if(this.state.data == null) {
             return(<div className="Weather"></div>)
         } else {
-           
             return (
                 <div className="Weather">
                     
@@ -28,7 +27,7 @@ class Suggestion extends React.Component {
                     <br/>
                     <div className={Style.weather}>
                         <div className={Style.weatherText}>
-                            <div>    Suggestion for today</div>
+                            <h1>Suggestion for today</h1>
                             <span className={Style.weatherDescription}>{activities(this.state.data.weather[0].description)}</span>
                         </div>
                     </div>
