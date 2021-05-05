@@ -1,7 +1,5 @@
 
-
 import {Grid,AppBar} from '@material-ui/core'
-import './App.css';
 import './App.css';
 import React from 'react';
 import Navbar from './navbar/index'
@@ -21,7 +19,7 @@ class App extends React.Component {
        }
 
     render() {
-            this.getLocation();
+            this.getDefaultWeatherByLocation();
         return (
             <div className="App">
                 <AppBar>
@@ -47,8 +45,6 @@ class App extends React.Component {
 
                 </Grid>
              
-
-
             </div>                     
         );
     }
@@ -59,18 +55,21 @@ class App extends React.Component {
         const body = {
             city: content
         };
+
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
+        //    city name is exist ?
+        // return 'failed'  from backend  
         if(response.data === "failed"){
             window.alert("Please input right city name!")
         }else{
-
-        console.log( response.data);
+        // update weather
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
         this.handleNews(content)
 
+         //    search current weatherforecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
                this.setState({weatherforecast:response.data})
@@ -78,26 +77,25 @@ class App extends React.Component {
            });
         }
        });
-
-
     }
 
-    async getLocation(){
+    // get current location (latitude, and longitude),
+    //  and return the weather and forecast
+    async getDefaultWeatherByLocation(){
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
-    
     showDefaultWeather=(position)=>{
-        const dePos ={
+         const dePos ={
            lat : position.coords.latitude,
            lng : position.coords.longitude
         }
-       
+    //    get current position's weather
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
                this.handleWeather(response.data)
                this.handleNews(response.data.name)
            });
 
-        
+    //    get current position's weatherforecast
         axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
                 this.handleWeatherForecast (response.data)
         });

@@ -13,18 +13,15 @@ class News extends React.Component {
     }
     refresh = (newNews) => {
         this.setState({
-     
         newsSrc: this.state.newsPre+ newNews + this.state.newsPost
         }) 
     }
   
-     
     render() {
 
         return (
             <div>
                 <iframe title={"abc"} className={Style.newsStyle} src={this.state.newsSrc} >
-
                 </iframe>
             
             </div>

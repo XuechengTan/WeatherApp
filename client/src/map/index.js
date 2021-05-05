@@ -34,7 +34,6 @@ class MapContainer extends React.Component {
     getCityLocation() {
         let p =[]
          new Promise((resolve, reject) => {
-
             this.getLongitudeAndLatitude()
                 //The method to get the latitude and longitude returns an array of latitude and longitude
                 .then((locationArr) => {
