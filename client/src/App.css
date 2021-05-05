@@ -9,12 +9,12 @@
 }
 .Search{
   margin:0 auto;
-  margin-top: 40px;
+  margin-top: 2em;
   border-radius: 20px;
 }
 .Map{
-  width: 400px;
-  height: 400px;
+  width: 35em;
+  height: 35em;
   background: white;
   margin:0 auto;
   margin-top: 60px;

@@ -1,4 +1,10 @@
+@font-face{
+    font-family:'city';
+    src:url('./../font/BabySchoolItalic.ttf'); 
+}
+
 .cityName{
+    font-family:'city' ;
     width: 100%;
     font-size: 60px;
     text-align: center;

@@ -6,6 +6,10 @@ function Navbar() {
   return (
     <div className="Navbar">
       <Calender  />
+      <div className="title">Weather Forecast
+      </div>
+      <div className="project">Group-29-Aquamarine-Alpaca
+      </div>
     </div>
   );
 }

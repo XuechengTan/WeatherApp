@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './weather.module.css'
+import Style from './suggestion.module.css'
 import tempSuggestion from '../Suggestion/Temp'
 import activities from '../Suggestion/Activities'
 
@@ -8,7 +8,6 @@ class Suggestion extends React.Component {
         data: this.props.data
     }
     
-
     refresh = (weather) => {
         this.setState({
             data:weather
@@ -28,10 +27,19 @@ class Suggestion extends React.Component {
                     <div className={Style.weather}>
                         <div className={Style.weatherText}>
                             <h1>Suggestion for today</h1>
-                            <span className={Style.weatherDescription}>{activities(this.state.data.weather[0].description)}</span>
+                            <hr></hr>
+                            <br/>
+                            <br/>
+                          
                         </div>
                     </div>
-                  <div className={Style.weatherContent}>{tempSuggestion(this.state.data.main.feels_like)}</div><br />
+                    <div>
+                     <span className={Style.weatherDescription}>·{activities(this.state.data.weather[0].description)}</span>
+                     </div>
+                     <br></br>                   
+                     <br></br>
+
+                  <div className={Style.weatherContent}><span>·{tempSuggestion(this.state.data.main.feels_like)}</span></div><br />
                   <br/>
                     
 
