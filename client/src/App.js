@@ -59,6 +59,7 @@ class App extends React.Component {
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
+        //    check cityName weather exist or not
         if(response.data === "failed"){
             window.alert("Please input right city name!")
         }else{
@@ -69,6 +70,7 @@ class App extends React.Component {
         this.handleMap(this.state.weather)
         this.handleNews(content)
 
+            // get weatherforecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
                this.setState({weatherforecast:response.data})
@@ -76,14 +78,13 @@ class App extends React.Component {
            });
         }
        });
-
-
     }
 
+
+    // get weather and forecast by current location
     async getWeatherByLocation(){
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
-    
     showDefaultWeather=(position)=>{
         const dePos ={
            lat : position.coords.latitude,
@@ -94,16 +95,12 @@ class App extends React.Component {
                this.handleNews(response.data.name)
            });
  
-        axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
-                this.handleWeatherForecast (response.data)
-        });
         //    get current position's weatherforecast
         axios.post("http://localhost:3001/defaultWeatherForecast", dePos).then((response) => {
             this.handleWeatherForecast(response.data)
         });
 
     }
-
 
     handleWeather = (weather) => {
         this.weather.refresh(weather)
