@@ -10,14 +10,18 @@ import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
 import News from './news/index';
-import WeatherF from './forecast/index'
+import WeatherF from './forecast/index';
+import Suggestion from './Suggestion/suggestion';
+
 
 class App extends React.Component {
     state = {
         weather: null,
         weatherForecast: null,
         location: null,
-        fail: null
+        fail: null,
+        suggestions:null
+        
     }
 
     render() {
@@ -41,6 +45,9 @@ class App extends React.Component {
                     </Grid>
                     <Grid item sm={12}>
                         <News ref= {c => this.news = c} />
+                    </Grid>
+                    <Grid item sm={3}>
+                        < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
                     </Grid>
 
                 </Grid>
@@ -69,6 +76,7 @@ class App extends React.Component {
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
         this.handleNews(content)
+        this.handleSuggestion(this.state.weather)
 
             // get weatherforecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
@@ -93,6 +101,7 @@ class App extends React.Component {
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
                this.handleWeather(response.data)
                this.handleNews(response.data.name)
+               this.handleSuggestion(response.data)
            });
  
         //    get current position's weatherforecast
@@ -115,6 +124,9 @@ class App extends React.Component {
     }
     handleNews = (news) => {
         this.news.refresh(news)
+    }
+    handleSuggestion = (suggestions) =>{
+        this.suggestions.refresh(suggestions)
     }
 
 }
