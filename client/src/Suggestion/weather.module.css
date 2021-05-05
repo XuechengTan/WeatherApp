@@ -1,0 +1,24 @@
+
+.weather{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+}
+.weatherText{
+    width: 100%;
+    align-content: space-between;
+}
+
+.weatherDescription{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+    font-size: 25px;
+}
+
+.weatherContent{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+    font-size: 25px;
+}
