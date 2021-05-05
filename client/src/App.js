@@ -71,7 +71,7 @@ class App extends React.Component {
 
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
-               this.setState({weatherforecast:response.data})
+               this.setState({weatherForecast:response.data})
                this.handleWeatherForecast (this.state.weatherforecast)
            });
         }
