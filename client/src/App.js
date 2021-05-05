@@ -1,5 +1,4 @@
-
-import {Grid,AppBar} from '@material-ui/core'
+import { Grid, AppBar } from '@material-ui/core'
 import './App.css';
 import React from 'react';
 import Navbar from './navbar/index'
@@ -8,98 +7,113 @@ import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
 import News from './news/index';
-import WeatherF from'./forecast/index'
+import WeatherF from './forecast/index'
 
 class App extends React.Component {
     state = {
         weather: null,
-        weatherForecast:null,
-        location:null,
+        weatherForecast: null,
+        location: null,
         fail: null
-       }
+    }
 
     render() {
-            this.getDefaultWeatherByLocation();
-        return (
-            <div className="App">
-                <AppBar>
-                    <Navbar />
-                </AppBar>
+        this.getDefaultWeatherByLocation();
+        return ( <
+            div className = "App" >
+            <
+            AppBar >
+            <
+            Navbar / >
+            <
+            /AppBar>
 
 
-                <Grid container spacing={3}>
-                    <Grid item sm={4}>
-                        <SearchView search={this.search}/>
-                        <MapContainer ref= {c => this.map = c} />
-                    </Grid>
+            <
+            Grid container spacing = { 3 } >
+            <
+            Grid item sm = { 4 } >
+            <
+            SearchView search = { this.search }
+            /> <
+            MapContainer ref = { c => this.map = c }
+            /> <
+            /Grid>
 
-                    <Grid item sm={3}>
-                        <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
-                    </Grid>
-                    <Grid item sm={3}>
-                        <WeatherF ref= {c => this.weatherForecast = c}/>
-                    </Grid>
-                    <Grid item sm={12}>
-                        <News ref= {c => this.news = c} />
-                    </Grid>
+            <
+            Grid item sm = { 3 } >
+            <
+            WeatherView ref = { c => this.weather = c }
+            data = { this.state.weather }
+            /> <
+            /Grid> <
+            Grid item sm = { 3 } >
+            <
+            WeatherF ref = { c => this.weatherForecast = c }
+            /> <
+            /Grid> <
+            Grid item sm = { 12 } >
+            <
+            News ref = { c => this.news = c }
+            /> <
+            /Grid> <
+            /Grid>
 
-                </Grid>
-             
             </div>                     
         );
     }
 
 
     search = (content) => {
-        console.log("content:"+content)
+        console.log("content:" + content)
         const body = {
             city: content
         };
 
         //    search current weather
-       axios.post("http://localhost:3001/weather",body).then((response)=>{
-        //    city name is exist ?
-        // return 'failed'  from backend  
-        if(response.data === "failed"){
-            window.alert("Please input right city name!")
-        }else{
-        // update weather
-        this.setState({weather:response.data})
-        this.handleWeather(this.state.weather)
-        this.handleMap(this.state.weather)
-        this.handleNews(content)
+        axios.post("http://localhost:3001/weather", body).then((response) => {
+            //    city name is exist ?
+            // return 'failed'  from backend  
+            if (response.data === "failed") {
+                window.alert("Please input right city name!")
+            } else {
+                // update weather
+                this.setState({ weather: response.data })
+                this.handleWeather(this.state.weather)
+                this.handleMap(this.state.weather)
+                this.handleNews(content)
 
-         //    search current weatherforecast
-        axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
-            console.log( response.data.list[0]);
-               this.setState({weatherforecast:response.data})
-               this.handleWeatherForecast (this.state.weatherforecast)
-           });
-        }
-       });
+                //    search current weatherforecast
+                axios.post("http://localhost:3001/weatherForecast", body).then((response) => {
+                    console.log(response.data.list[0]);
+                    this.setState({ weatherforecast: response.data })
+                    this.handleWeatherForecast(this.state.weatherforecast)
+                });
+            }
+        });
     }
 
     // get current location (latitude, and longitude),
     //  and return the weather and forecast
-    async getDefaultWeatherByLocation(){
+    async getDefaultWeatherByLocation() {
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
-    showDefaultWeather=(position)=>{
-         const dePos ={
-           lat : position.coords.latitude,
-           lng : position.coords.longitude
-        }
-    //    get current position's weather
-        axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
-               this.handleWeather(response.data)
-               this.handleNews(response.data.name)
-           });
-
-    //    get current position's weatherforecast
-        axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
-                this.handleWeatherForecast (response.data)
+    showDefaultWeather = (position) => {
+        const dePos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            }
+            //    get current position's weather
+        axios.post("http://localhost:3001/defaultWeather", dePos).then((response) => {
+            this.handleWeather(response.data)
+            this.handleNews(response.data.name)
         });
-        
+
+        //    get current position's weatherforecast
+        axios.post("http://localhost:3001/defaultWeatherForecast", dePos).then((response) => {
+            this.handleWeatherForecast(response.data)
+        });
+
     }
 
 
@@ -112,7 +126,7 @@ class App extends React.Component {
     }
 
     handleMap = (map) => {
-        this.map.refresh([map.coord.lat,map.coord.lon])
+        this.map.refresh([map.coord.lat, map.coord.lon])
     }
     handleNews = (news) => {
         this.news.refresh(news)
@@ -123,4 +137,3 @@ class App extends React.Component {
 }
 
 export default App;
-
