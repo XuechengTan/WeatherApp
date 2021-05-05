@@ -52,8 +52,6 @@ class App extends React.Component {
 
                 </Grid>
              
-
-
             </div>                     
         );
     }
@@ -130,5 +128,4 @@ class App extends React.Component {
     }
 
 }
-
 export default App;

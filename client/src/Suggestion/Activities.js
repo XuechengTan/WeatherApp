@@ -1,8 +1,5 @@
 export default function activitySuggestion(weather) {
 
-  
-    
-
     if (weather.includes("clear") ){
             return "  Good for out door activities!";
 
@@ -11,10 +8,7 @@ export default function activitySuggestion(weather) {
     
             }else if(weather.includes("rain")||weather.includes("Rain")||weather.includes("shower")||weather.includes("Shower")||weather.includes("drizzle")||weather.includes("thunderstorm")){
                 return  " Shower or rain. Take umbrella in case.";
-    
             }else{
                 return "";
-    
             }
-        
     }
