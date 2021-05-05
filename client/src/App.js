@@ -32,21 +32,21 @@ class App extends React.Component {
                     <Navbar />
                 </AppBar>
                 <Grid container spacing={3}>
-                    <Grid item sm={4}>
+                    <Grid item sm={4} xs={8}>
                         <SearchView search={this.search}/>
                         <MapContainer ref= {c => this.map = c} />
                     </Grid>
 
-                    <Grid item sm={3}>
+                    <Grid item sm={3} xs={8}>
                         <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
                     </Grid>
-                    <Grid item sm={3}>
+                    <Grid item sm={3} xs={8}>
                         <WeatherF ref= {c => this.weatherForecast = c}/>
                     </Grid>
-                    <Grid item sm={1}>
+                    <Grid item sm={1} xs={8}>
                         < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
                     </Grid>
-                    <Grid item sm={12}>
+                    <Grid item sm={12} xs={8}>
                         <News ref= {c => this.news = c} />
                     </Grid>
                 </Grid>
