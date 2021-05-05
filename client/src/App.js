@@ -10,25 +10,23 @@ import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
 import News from './news/index';
-import WeatherF from'./forecast/index'
+import WeatherF from './forecast/index'
 
 class App extends React.Component {
     state = {
         weather: null,
-        weatherForecast:null,
-        location:null,
+        weatherForecast: null,
+        location: null,
         fail: null
-       }
+    }
 
     render() {
-            this.getLocation();
+            this.getWeatherByLocation();
         return (
             <div className="App">
                 <AppBar>
                     <Navbar />
                 </AppBar>
-
-
                 <Grid container spacing={3}>
                     <Grid item sm={4}>
                         <SearchView search={this.search}/>
@@ -55,7 +53,7 @@ class App extends React.Component {
 
 
     search = (content) => {
-        console.log("content:"+content)
+        console.log("content:" + content)
         const body = {
             city: content
         };
@@ -82,7 +80,7 @@ class App extends React.Component {
 
     }
 
-    async getLocation(){
+    async getWeatherByLocation(){
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
     
@@ -90,18 +88,20 @@ class App extends React.Component {
         const dePos ={
            lat : position.coords.latitude,
            lng : position.coords.longitude
-        }
-       
+        }    
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
                this.handleWeather(response.data)
                this.handleNews(response.data.name)
            });
-
-        
+ 
         axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
                 this.handleWeatherForecast (response.data)
         });
-        
+        //    get current position's weatherforecast
+        axios.post("http://localhost:3001/defaultWeatherForecast", dePos).then((response) => {
+            this.handleWeatherForecast(response.data)
+        });
+
     }
 
 
@@ -114,15 +114,12 @@ class App extends React.Component {
     }
 
     handleMap = (map) => {
-        this.map.refresh([map.coord.lat,map.coord.lon])
+        this.map.refresh([map.coord.lat, map.coord.lon])
     }
     handleNews = (news) => {
         this.news.refresh(news)
     }
 
-
-
 }
 
 export default App;
-

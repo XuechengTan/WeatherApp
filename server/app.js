@@ -22,9 +22,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(cors({
-  origin:['http://localhost:3000'],  //指定接收的地址
-  methods:['GET','POST'],  //指定接收的请求类型
-  alloweHeaders:['Content-Type','Authorization']  //指定header
+  //specify the address
+  origin:['http://localhost:3000'], 
+    //Specifies the type of request to receive
+  methods:['GET','POST'], 
+  // specify the header
+  alloweHeaders:['Content-Type','Authorization'] 
 }))
 app.use(logger('dev'));
 app.use(express.json());
