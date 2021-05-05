@@ -7,16 +7,16 @@ export default function tempSuggestion(tem) {
   
 
 if ((tem -273.15)>30){
-        return  "  Clothing: T-shirt + short";
+        return  "  Clothing advise: T-shirt + short maybe enough";
 
         }else if((tem -273.15)>15){
-            return  "  Clothing: 1 layer";
+            return  "  Clothing advise: 1 layer shirt and pants";
 
         }else if((tem -273.15)>5){
-            return "  Clothing: 2 layers";
+            return "  Clothing advise: Casual jacket or leather clothing ";
 
         }else{
-            return  "  Clothing: Down jacket";
+            return  "  Clothing advise: Down jacket or other thick clothing";
 
         }
     

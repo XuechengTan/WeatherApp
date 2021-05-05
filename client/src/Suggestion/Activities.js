@@ -8,7 +8,9 @@ export default function activitySuggestion(weather) {
     
             }else if(weather.includes("rain")||weather.includes("Rain")||weather.includes("shower")||weather.includes("Shower")||weather.includes("drizzle")||weather.includes("thunderstorm")){
                 return  " Shower or rain. Take umbrella in case.";
-            }else{
+            }else if(weather.includes("cloud")||weather.includes("Rain")||weather.includes("shower")||weather.includes("Shower")||weather.includes("drizzle")||weather.includes("thunderstorm")){
+                    return  " Prepare for the raining day";
+            }else {
                 return "";
             }
     }

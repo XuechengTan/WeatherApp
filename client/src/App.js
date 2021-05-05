@@ -43,12 +43,13 @@ class App extends React.Component {
                     <Grid item sm={3}>
                         <WeatherF ref= {c => this.weatherForecast = c}/>
                     </Grid>
+                    <Grid item sm={1}>
+                        < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
+                    </Grid>
                     <Grid item sm={12}>
                         <News ref= {c => this.news = c} />
                     </Grid>
-                    <Grid item sm={3}>
-                        < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
-                    </Grid>
+
 
                 </Grid>
              
