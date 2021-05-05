@@ -50,7 +50,7 @@ class MapContainer extends React.Component {
         this.getCityLocation()
         return (
             <div className="Map">
-                {console.log(this.state.location + "在MAP中的")}
+                {/*{console.log(this.state.location + "在MAP中的")}*/}
                 <GoogleMapReact
                     ref={c => this.googleMap = c}
                     bootstrapURLKeys={ {key: "AIzaSyDOr6t4ExGs3TE8CTAGsI5tk3Zpor_Egow"} }
