@@ -56,7 +56,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
 // connect database
 mongoose.connect('mongodb://localhost:27017/CityName');
 mongoose.connection.on('open',function (error) {
@@ -66,7 +65,5 @@ mongoose.connection.on('open',function (error) {
         console.log("successfull")
     }
 })
-
-
 
 module.exports = app;
