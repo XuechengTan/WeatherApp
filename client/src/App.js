@@ -42,7 +42,11 @@ class App extends React.Component {
                     <Grid item sm={12}>
                         <News ref= {c => this.news = c} />
                     </Grid>
+
                 </Grid>
+             
+
+
             </div>                     
         );
     }
