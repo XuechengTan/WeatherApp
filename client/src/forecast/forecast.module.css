@@ -1,0 +1,35 @@
+.cityName{
+    font-family: 'city';
+    width: 100%;
+    font-size: 28px;
+    text-align: center;
+}
+.weather{
+    width: 100%;
+    display: flex; 
+    /* align-items: center */
+    align-content: space-between;
+}
+.weatherText{
+    width: 70%;
+    display: inline-block;
+}
+.weatherMain{
+    font-size: 28px;
+}
+.weatherDescription{
+    font-size: 18px;
+}
+.weatherIcon{
+    align-items: flex-end;
+    margin: -20px 0px;
+}
+.weatherTitle{
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+@font-face{
+    font-family:'city';
+    src:url('./../font/BabySchoolItalic.ttf'); 
+}
