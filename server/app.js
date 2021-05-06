@@ -5,15 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require("cors");
 var mongoose = require('mongoose');
-const checkCity = require('./models/init')
-
 
 
 var weatherRouter = require("./routes/weather");
 var weatherForecastRouter = require("./routes/weatherForecast");
 var defaultWeatherRouter = require("./routes/defaultWeather");
 var defaultWeatherForecastRouter = require("./routes/defaultWeatherForecast");
-
 
 var app = express();
 

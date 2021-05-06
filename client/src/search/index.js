@@ -9,10 +9,6 @@ import MuiAlert  from '@material-ui/lab/Alert'
 import Snackbar from '@material-ui/core/Snackbar';
 
 
-
-
-
-
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
   }
@@ -23,9 +19,6 @@ class Search extends React.Component {
         open: false,
         msg: "",
     }
-
-
-    
 
     onChange = (e) => {
         const target = e.target
