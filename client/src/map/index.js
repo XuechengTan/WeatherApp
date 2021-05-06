@@ -12,7 +12,6 @@ class MapContainer extends React.Component {
         this.setState({
             location: newLocation
         })
-        console.log(newLocation)
     }
 
     //get the current location
