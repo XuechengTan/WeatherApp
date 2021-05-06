@@ -7,7 +7,6 @@ class MapContainer extends React.Component {
         location: this.props.location,
 
     }
-
     refresh = (newLocation) => {
         console.log("refresh success")
         this.setState({
