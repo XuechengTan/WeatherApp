@@ -2,11 +2,12 @@ const { default: axios } = require("axios");
 var express = require("express");
 var router = express.Router();
 const checkCity = require('../models/init')
-
+var mongoose = require('mongoose')
 
 //search city weather 
 router.post("/", function( req, res) {
     let city = req.body.city;
+
    
     //check city
      checkCity.exists({name:{$regex: new RegExp(`^${city}$`),$options:'i'}},function(err,docs){
