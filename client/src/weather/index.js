@@ -28,7 +28,6 @@ class Weather extends React.Component {
             
             return (
                 <div className="Weather">
-                   {console.log(this.state.data)}
                     <div className={Style.cityName}>{this.state.data.name}</div>
                     <br/>
                     <br/>
@@ -52,7 +51,6 @@ class Weather extends React.Component {
                     <span className={Style.weatherTitle}>Wind:</span><br />
                     <span className={Style.weatherContent}>Speed: {this.state.data.wind.speed}meter/sec</span>&emsp;
                     <span className={Style.weatherContent}>Direction: {this.state.data.wind.deg}(meteorological)</span>&emsp;
-                    {/* <span className="WeatherSubtitle">Wind Gust: {this.state.data.wind.gust}</span> */}
                     <br />
                     <span className={Style.weatherTitle}>Clouds: </span>
                     <span className={Style.weatherContent}>Cloudiness: {this.state.data.clouds.all}%</span><br />
@@ -86,4 +84,5 @@ Date.prototype.Format = function (fmt) {
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
 export default Weather;
