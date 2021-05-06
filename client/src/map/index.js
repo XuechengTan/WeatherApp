@@ -2,10 +2,8 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react'
 
 class MapContainer extends React.Component {
-
     state = {
         location: this.props.location,
-
     }
     refresh = (newLocation) => {
         console.log("refresh success")
@@ -31,7 +29,6 @@ class MapContainer extends React.Component {
     getCityLocation() {
         let p =[]
          new Promise((resolve, reject) => {
-
             this.getLongitudeAndLatitude()
                 //The method to get the latitude and longitude returns an array of latitude and longitude
                 .then((locationArr) => {
@@ -54,14 +51,11 @@ class MapContainer extends React.Component {
                     defaultCenter={[1,1]}
                     center={this.state.location}
                     yesIWantToUseGoogleMapApiInternals
-                    currentLatLng={this.state.location}
-                    >
+                    currentLatLng={this.state.location}>
                 </GoogleMapReact>
              </div>
         );
     }
 }
-
-
 
 export default MapContainer;
