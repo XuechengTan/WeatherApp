@@ -41,7 +41,6 @@ class Suggestion extends React.Component {
 
                   <div className={Style.suggestionContent}><span>·{tempSuggestion(this.state.data.main.feels_like)}</span></div><br />
                   <br/>
-                    
 
                 </div>
             );

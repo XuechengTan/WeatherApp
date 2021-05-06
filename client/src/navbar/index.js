@@ -5,6 +5,7 @@ import Calender from './canlender'
 function Navbar() {
   return (
     <div className="Navbar">
+      {/* show the calender*/}
       <Calender  />
       <div className="title">Weather Forecast
       </div>
