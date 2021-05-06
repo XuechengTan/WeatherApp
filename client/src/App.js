@@ -36,7 +36,6 @@ class App extends React.Component {
                         <SearchView search={this.search}/>
                         <MapContainer ref= {c => this.map = c} />
                     </Grid>
-
                     <Grid item sm={3} xs={8}>
                         <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
                     </Grid>
@@ -84,11 +83,11 @@ class App extends React.Component {
        });
     }
 
-
     // get weather and forecast by current location
     async getWeatherByLocation(){
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
+
     showDefaultWeather=(position)=>{
         const dePos ={
            lat : position.coords.latitude,
@@ -118,9 +117,11 @@ class App extends React.Component {
     handleMap = (map) => {
         this.map.refresh([map.coord.lat, map.coord.lon])
     }
+
     handleNews = (news) => {
         this.news.refresh(news)
     }
+
     handleSuggestion = (suggestions) =>{
         this.suggestions.refresh(suggestions)
     }
