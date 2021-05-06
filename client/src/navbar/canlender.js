@@ -4,12 +4,14 @@ class Calender extends React.Component {
       super(props);
       this.state = {date: new Date()};
     }
+
     componentDidMount() {
       this.timerID = setInterval(
         () => this.tick(),
         1000
       );
     }
+
     componentWillUnmount() {
       clearInterval(this.timerID);
     }
@@ -19,6 +21,7 @@ class Calender extends React.Component {
         date: new Date()
       });
     }
+
     render() {
       return (
         <div className="Calender">
