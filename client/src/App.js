@@ -1,5 +1,3 @@
-
-
 import {Grid,AppBar} from '@material-ui/core'
 import './App.css';
 import './App.css';
@@ -12,7 +10,6 @@ import axios from 'axios';
 import News from './news/index';
 import WeatherF from './forecast/index';
 import Suggestion from './Suggestion/suggestion';
-
 
 class App extends React.Component {
     state = {
@@ -46,6 +43,7 @@ class App extends React.Component {
                         < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
                     </Grid>
                     <Grid item sm={12} xs={8}>
+                        {/*  Show current postion news */}
                         <News ref= {c => this.news = c} />
                     </Grid>
                 </Grid>
@@ -94,8 +92,11 @@ class App extends React.Component {
            lng : position.coords.longitude
         }    
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
-               this.handleWeather(response.data)
+            //    show current default weather
+                this.handleWeather(response.data)
+                //show default news
                this.handleNews(response.data.name)
+               //show suggestions
                this.handleSuggestion(response.data)
            });
  
