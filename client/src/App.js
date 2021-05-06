@@ -50,7 +50,7 @@ class App extends React.Component {
             </div>                     
         );
     }
-    //asdasdasd
+
 
     search = (content) => {
         console.log("content:" + content)
