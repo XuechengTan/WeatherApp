@@ -1,8 +1,5 @@
-
-
-import Grid from '@material-ui/core/Grid'
+import {Grid,AppBar} from '@material-ui/core'
 import './App.css';
-
 import './App.css';
 import React from 'react';
 import Navbar from './navbar/index'
@@ -11,59 +8,59 @@ import WeatherView from './weather/index';
 import MapContainer from './map/index';
 import axios from 'axios';
 import News from './news/index';
-import WeatherF from'./forecast/index'
-import { Link, Route,Redirect } from 'react-router-dom';
+import WeatherF from './forecast/index';
+import Suggestion from './Suggestion/suggestion';
 
 class App extends React.Component {
     state = {
         weather: null,
-        weatherForecast:null,
-        location:null,
-        fail: null
-       }
+        weatherForecast: null,
+        location: null,
+        fail: null,
+        suggestions:null
+        
+    }
 
     render() {
-            this.getLocation();
+            this.getWeatherByLocation();
         return (
-
             <div className="App">
-                <Navbar />
-
-               
-
+                <AppBar>
+                    <Navbar />
+                </AppBar>
                 <Grid container spacing={3}>
-                    <Grid item xs={4}>
-                        <SearchView search={this.search}  />
-
+                    <Grid item sm={4} xs={8}>
+                        <SearchView search={this.search}/>
                         <MapContainer ref= {c => this.map = c} />
-
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item sm={3} xs={8}>
                         <WeatherView ref= {c => this.weather = c} data = {this.state.weather}/>
-
-
                     </Grid>
-                    <Grid item xs={4}>
+                    <Grid item sm={3} xs={8}>
                         <WeatherF ref= {c => this.weatherForecast = c}/>
-                        </Grid>
+                    </Grid>
+                    <Grid item sm={1} xs={8}>
+                        < Suggestion ref = {c =>this.suggestions=c} data = {this.state.weather} />
+                    </Grid>
+                    <Grid item sm={12} xs={8}>
+                        {/*  Show current postion news */}
+                        <News ref= {c => this.news = c} />
+                    </Grid>
                 </Grid>
-             
-
-                <News ref= {c => this.news = c} /> 
-            </div>
+            </div>                     
         );
     }
 
 
     search = (content) => {
-        console.log("content:"+content)
-        this.handleNews(content)
+        console.log("content:" + content)
         const body = {
             city: content
         };
         //    search current weather
        axios.post("http://localhost:3001/weather",body).then((response)=>{
-        if(response.data == "failed"){
+        //    check cityName weather exist or not
+        if(response.data === "failed"){
             window.alert("Please input right city name!")
         }else{
 
@@ -71,6 +68,10 @@ class App extends React.Component {
         this.setState({weather:response.data})
         this.handleWeather(this.state.weather)
         this.handleMap(this.state.weather)
+        this.handleNews(content)
+        this.handleSuggestion(this.state.weather)
+
+            // get weatherforecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
                this.setState({weatherforecast:response.data})
@@ -78,40 +79,33 @@ class App extends React.Component {
            });
         }
        });
-
-        // forecast
-    //    axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
-    //     console.log( response.data.list[0]);
-    //        this.setState({weatherforecast:response.data})
-    //        this.handleWeatherForecast (this.state.weatherforecast)
-    //    });
-
-
-
     }
 
-    async getLocation(){
+    // get weather and forecast by current location
+    async getWeatherByLocation(){
         await navigator.geolocation.getCurrentPosition(this.showDefaultWeather);
     }
-    
+
     showDefaultWeather=(position)=>{
         const dePos ={
            lat : position.coords.latitude,
            lng : position.coords.longitude
-        }
-       
+        }    
         axios.post("http://localhost:3001/defaultWeather",dePos).then((response)=>{
-               this.handleWeather(response.data)
+            //    show current default weather
+                this.handleWeather(response.data)
+                //show default news
                this.handleNews(response.data.name)
+               //show suggestions
+               this.handleSuggestion(response.data)
            });
-
-        
-        axios.post("http://localhost:3001/defaultWeatherForecast",dePos).then((response)=>{
-                this.handleWeatherForecast (response.data)
+ 
+        //    get current position's weatherforecast
+        axios.post("http://localhost:3001/defaultWeatherForecast", dePos).then((response) => {
+            this.handleWeatherForecast(response.data)
         });
-        
-    }
 
+    }
 
     handleWeather = (weather) => {
         this.weather.refresh(weather)
@@ -122,15 +116,16 @@ class App extends React.Component {
     }
 
     handleMap = (map) => {
-        this.map.refresh([map.coord.lat,map.coord.lon])
+        this.map.refresh([map.coord.lat, map.coord.lon])
     }
+
     handleNews = (news) => {
         this.news.refresh(news)
     }
 
-
+    handleSuggestion = (suggestions) =>{
+        this.suggestions.refresh(suggestions)
+    }
 
 }
-
 export default App;
-

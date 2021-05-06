@@ -1,10 +1,6 @@
 import React from 'react';
 import Style from './weather.module.css'
 
-
-
-
-
 class Weather extends React.Component {
     state = {
         data: this.props.data
@@ -30,23 +26,24 @@ class Weather extends React.Component {
             
             return (
                 <div className="Weather">
-                   
+                   {console.log(this.state.data)}
                     <div className={Style.cityName}>{this.state.data.name}</div>
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
+                    <span className={Style.weatherContent}>Country: {this.state.data.sys.country}</span>
+                    <hr></hr>
                     <br/>
                     <div className={Style.weather}>
                         <div className={Style.weatherText}>
                             <span className={Style.weatherMain}>{this.state.data.weather[0].main}</span><br />
+                            <br />
                             <span className={Style.weatherDescription}>{this.state.data.weather[0].description}</span>
                         </div>
                         <img alt={""}className={Style.weatherIcon} src={weatherIconUrl} width="100" height="100"/>
                     </div>
                     <span className={Style.weatherTitle}>Temperature:</span><br />
                     <span className={Style.weatherContent}>AVG: {this.formatTemperature(this.state.data.main.temp) }&emsp; MIN: {this.formatTemperature(this.state.data.main.temp_min) }&emsp; MAX: {this.formatTemperature(this.state.data.main.temp_max)}</span><br />
-                    <span className={Style.weatherContent}>Feels Like: {this.formatTemperature(this.state.data.main.feels_like)}</span><br />
+                    <span className={Style.weatherContent}>Feels Like: {this.formatTemperature(this.state.data.main.feels_like)}</span><br /><br />
                     <span className={Style.weatherTitle}>Humidity: </span>
                     <span className={Style.weatherContent}>{this.state.data.main.humidity}%</span>&emsp;
                     {/* <span className="WeatherSubtitle">Sea Level: {this.state.data.main.sea_level}</span>&emsp;

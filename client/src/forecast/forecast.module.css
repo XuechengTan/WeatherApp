@@ -1,4 +1,5 @@
 .cityName{
+    font-family: 'city';
     width: 100%;
     font-size: 28px;
     text-align: center;
@@ -27,6 +28,8 @@
     font-size: 22px;
     margin-top: 20px;
 }
-.weatherContent{
 
+@font-face{
+    font-family:'city';
+    src:url('./../font/BabySchoolItalic.ttf'); 
 }

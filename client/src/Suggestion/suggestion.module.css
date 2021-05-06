@@ -1,0 +1,25 @@
+
+.suggestion{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+}
+.suggestionText{
+    font-family: 'city';
+    width: 100%;
+    align-content: space-between;
+}
+
+.suggestionDescription{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+    font-size: 20px;
+}
+
+.suggestionContent{
+    width: 100%;
+    display: flex; 
+    align-content: space-between;
+    font-size: 20px;
+}

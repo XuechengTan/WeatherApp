@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './weather.module.css'
+import Style from './forecast.module.css'
 class WeatherForecast extends React.Component {
     state = {
         data: null

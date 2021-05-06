@@ -13,6 +13,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-react-app": "^3.1.2",
     "cors": "^2.8.5",
+    "enzyme-adapter-react-15": "^1.4.3",
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
     "mongoose": "^5.12.7",
@@ -24,6 +25,7 @@
     "react-native-geolocation-service": "^5.3.0-beta.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-test-renderer": "^17.0.2",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -53,6 +55,14 @@
   "devDependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
-    "react-geocode": "^0.2.3"
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.6.3",
+    "babel-preset-env": "^1.6.1",
+    "enzyme": "^3.11.0",
+    "jest": "^26.6.0",
+    "jest-enzyme": "^7.1.2",
+    "react-geocode": "^0.2.3",
+    "regenerator-runtime": "^0.13.7"
   }
 }
