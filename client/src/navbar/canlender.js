@@ -13,7 +13,7 @@ class Calender extends React.Component {
     componentWillUnmount() {
       clearInterval(this.timerID);
     }
-  
+
     tick() {
       this.setState({
         date: new Date()
@@ -27,7 +27,7 @@ class Calender extends React.Component {
         );
     }
   }
-  
+
   Date.prototype.Format = function (fmt) {
       var o = {
           "M+": this.getMonth() + 1,
@@ -43,4 +43,5 @@ class Calender extends React.Component {
           if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
       return fmt;
   }
+  
 export default Calender;

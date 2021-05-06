@@ -20,9 +20,10 @@ class News extends React.Component {
         }) 
     }
   
+     
     render() {
+
         return (
-            // show news
             <div>
                 <iframe title={"abc"} className={Style.newsStyle} src={this.state.newsSrc} >
                 </iframe>
