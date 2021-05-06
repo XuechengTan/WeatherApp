@@ -4,13 +4,18 @@ class WeatherForecast extends React.Component {
     state = {
         data: null
     }
+
+    //formatDate
     formatDate=(second) => {
         return new Date(parseInt(second) * 1000).Format("yyyy-MM-dd HH:mm:ss")
     }
+
+    //formatTemperature
     formatTemperature=(kelvin) => {
         return (kelvin -273.15).toFixed(1) + "°C"
     }
 
+    //display the weatherForecast
     refresh = (weather) => {
         this.setState({
             data:weather
@@ -72,6 +77,7 @@ class WeatherForecast extends React.Component {
     }
 }
 
+// time display in normal mode
 Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,
