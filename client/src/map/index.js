@@ -5,6 +5,8 @@ class MapContainer extends React.Component {
     state = {
         location: this.props.location,
     }
+
+    //display and refresh
     refresh = (newLocation) => {
         console.log("refresh success")
         this.setState({
@@ -12,6 +14,8 @@ class MapContainer extends React.Component {
         })
         console.log(newLocation)
     }
+
+    //get the current location
     getLongitudeAndLatitude = () => {
         return new Promise((resolve, reject) => {
 

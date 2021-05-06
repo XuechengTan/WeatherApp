@@ -51,7 +51,7 @@ class App extends React.Component {
         );
     }
 
-
+    // handle the users search options
     search = (content) => {
         console.log("content:" + content)
         const body = {
@@ -100,29 +100,35 @@ class App extends React.Component {
                this.handleSuggestion(response.data)
            });
  
-        //    get current position's weatherforecast
+        //    get current position's weatherForecast
         axios.post("http://localhost:3001/defaultWeatherForecast", dePos).then((response) => {
             this.handleWeatherForecast(response.data)
         });
 
     }
 
+
+    // to refresh and display the weather section
     handleWeather = (weather) => {
         this.weather.refresh(weather)
     }
 
+    // to refresh and display the weatherForecast section
     handleWeatherForecast = (weather) => {
         this.weatherForecast.refresh(weather)
     }
 
+    // to refresh and display the map section
     handleMap = (map) => {
         this.map.refresh([map.coord.lat, map.coord.lon])
     }
 
+    // to refresh and display the news section
     handleNews = (news) => {
         this.news.refresh(news)
     }
 
+    // to refresh and display the suggestions section
     handleSuggestion = (suggestions) =>{
         this.suggestions.refresh(suggestions)
     }

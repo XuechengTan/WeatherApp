@@ -5,9 +5,11 @@ class Weather extends React.Component {
     state = {
         data: this.props.data
     }
+
     formatDate=(second) => {
         return new Date(parseInt(second) * 1000).Format("yyyy-MM-dd HH:mm:ss")
     }
+
     formatTemperature=(kelvin) => {
         return (kelvin -273.15).toFixed(1) + "°C"
     }
@@ -46,8 +48,6 @@ class Weather extends React.Component {
                     <span className={Style.weatherContent}>Feels Like: {this.formatTemperature(this.state.data.main.feels_like)}</span><br /><br />
                     <span className={Style.weatherTitle}>Humidity: </span>
                     <span className={Style.weatherContent}>{this.state.data.main.humidity}%</span>&emsp;
-                    {/* <span className="WeatherSubtitle">Sea Level: {this.state.data.main.sea_level}</span>&emsp;
-                    <span className="WeatherSubtitle">Grnd Level: {this.state.data.main.grnd_level}</span> */}
                     <br />
                     <span className={Style.weatherTitle}>Wind:</span><br />
                     <span className={Style.weatherContent}>Speed: {this.state.data.wind.speed}meter/sec</span>&emsp;
@@ -56,15 +56,6 @@ class Weather extends React.Component {
                     <br />
                     <span className={Style.weatherTitle}>Clouds: </span>
                     <span className={Style.weatherContent}>Cloudiness: {this.state.data.clouds.all}%</span><br />
-                    {/*
-                    <span className={Style.weatherTitle}>Rain: </span>
-                    <span className={Style.weatherContent}> 1h: {this.state.data.rain['1h']}</span>&emsp;
-                    <span className={Style.weatherContent}> 3h: {this.state.data.rain['3h']}</span>
-                    <br />
-                    <span className={Style.weatherTitle}>Snow: </span>
-                    <span className={Style.weatherContent}> 1h: {this.state.data.snow['1h']}</span>&emsp;
-                    <span className={Style.weatherContent}> 3h: {this.state.data.snow['3h']}</span>
-                    <br /> */}
                     <span className={Style.weatherTitle}>Sunrise Time:</span>
                     <span className={Style.weatherContent}> {this.formatDate(this.state.data.sys.sunrise)}</span><br />
                     <span className={Style.weatherTitle}>Sunset Time: </span>
