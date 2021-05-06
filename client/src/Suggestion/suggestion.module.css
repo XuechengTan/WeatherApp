@@ -1,23 +1,23 @@
 
-.weather{
+.suggestion{
     width: 100%;
     display: flex; 
     align-content: space-between;
 }
-.weatherText{
+.suggestionText{
     font-family: 'city';
     width: 100%;
     align-content: space-between;
 }
 
-.weatherDescription{
+.suggestionDescription{
     width: 100%;
     display: flex; 
     align-content: space-between;
     font-size: 20px;
 }
 
-.weatherContent{
+.suggestionContent{
     width: 100%;
     display: flex; 
     align-content: space-between;

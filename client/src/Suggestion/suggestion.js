@@ -24,8 +24,8 @@ class Suggestion extends React.Component {
                     <br/>
                     <br/>
                     <br/>
-                    <div className={Style.weather}>
-                        <div className={Style.weatherText}>
+                    <div className={Style.suggestion}>
+                        <div className={Style.suggestionText}>
                             <h1>Suggestion for today</h1>
                             <hr></hr>
                             <br/>
@@ -34,12 +34,12 @@ class Suggestion extends React.Component {
                         </div>
                     </div>
                     <div>
-                     <span className={Style.weatherDescription}>·{activities(this.state.data.weather[0].description)}</span>
+                     <span className={Style.suggestionDescription}>·{activities(this.state.data.weather[0].description)}</span>
                      </div>
                      <br></br>                   
                      <br></br>
 
-                  <div className={Style.weatherContent}><span>·{tempSuggestion(this.state.data.main.feels_like)}</span></div><br />
+                  <div className={Style.suggestionContent}><span>·{tempSuggestion(this.state.data.main.feels_like)}</span></div><br />
                   <br/>
                     
 
