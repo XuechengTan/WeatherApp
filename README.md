@@ -2,7 +2,9 @@
 # Group-29-Aquamarine-Alpaca Weather Forecaster
 
 ## Project overview
-This full-stack project allows users to view the current weather conditions in their area and other cities as well as future weather forecasts, the latest local news and clothing suggestion. ![Screenshot 1](/screenshot/Mongkok.png?raw=true "Screenshot 1")
+This full-stack project allows users to view the current weather conditions in their area and other cities as well as future weather forecasts, the latest local news and clothing suggestion. 
+
+![Screenshot 1](/screenshot/Mongkok.png?raw=true "Screenshot 1")
 
 ## Quick start guide
 In order to run this weather forecaster locally, a number of dependencies need to be installed beforehand.<br>
