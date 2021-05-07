@@ -46,9 +46,7 @@ In server file:
 npm start
 ```
 If `npm start` failed, please check weather you have install 
-`nodemon` or not.
-
-`nodemon` is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+`nodemon` or not. It is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
 ```
 npm install -g nodemon
 ```
@@ -64,28 +62,32 @@ Please make sure your browser allows this webpage to access your location in ord
 ## Website features
 If you want to check the weather or future weather in your city or in other cities, this weather forecaster provides you with enough information. The weather information is collected from `OpenWeather API`.
 
-When this weather forecaster is first loaded, it shows the weather in your current place and the weather for the next 48 hours, and your current location, with additional useful information such as clothing advice for the current weather conditions and the latest local news. ![Screenshot 2](/screenshot/Beijing.png?raw=true "Screenshot 2")
+When this weather forecaster is first loaded, it shows the weather in your current place and the weather for the next 48 hours, and your current location, with additional useful information such as clothing advice for the current weather conditions and the latest local news.
 
-If you want to check current weather or weather in the next 48 hours of other cities, simply type in the name of the city you wish to know in the search tab, then the webpage will refresh and showcase that specific city's current weather, weather in the next 48 hours, location, latest news, and clothing suggestion. ![Screenshot 3](/screenshot/Auckland.png?raw=true "Screenshot 3")
+ ![Screenshot 2](/screenshot/Beijing.png?raw=true "Screenshot 2")
+
+If you want to check current weather or weather in the next 48 hours of other cities, simply type in the name of the city you wish to know in the search tab, then the webpage will refresh and showcase that specific city's current weather, weather in the next 48 hours, location, latest news, and clothing suggestion. 
+
+![Screenshot 3](/screenshot/Auckland.png?raw=true "Screenshot 3")
 
 ### Map
-When the application is launched, a Google map of the user's current area is displayed. It allows the user to zoom in and out, and even move around to view it. In addition, when the user tries to search for other cities, the map will relocate to other regions. The embedded map is from Google Map.
+When the application is launched, a Google map of the user's current area is displayed. It allows the user to zoom in and out and even move around to view it. In addition, when the user tries to search for other cities, the map will relocate to other regions. The embedded map is from Google Map.
 
 ### Current weather and weather forecast
-The current weather of the area user locates at would be displayed when the application is launched, along with the 24 hours and 48 hours weather forecast. Furthermore, it allows user to type in and search for any cities in the world and all the weather information would be refreshed and updated correspondingly.
+The current weather of the area user would be displayed when the application is launched, along with the 24 hours and 48 hours weather forecast. Furthermore, it allows users to type in and search for any cities globally, and all the weather information would be refreshed and updated correspondingly.
 
 ### News
-When the application is launched, the latest news from the user's current location is displayed. In addition,  when the user tries to search for other areas, the content of the news page will be updated to other places/cities. The embedded news tab is from Bing news.
+When the application is launched, the latest news from the user's current location is displayed. In addition,  when the user tries to search for other areas, the content of the news page will be updated to other places/cities. The embedded news tab is from Bing News.
 
 ### Clothing suggestion
-For the default and responsive weather information, the suggestion is given according to the current weather situation. It gives user suggestion on activities such as good for outdoor activities when it is sunny weather, take umbrella when it rains or drizzles. Also, it gives user clothing suggestion according to the "feels-like" temperature.
+For the default and responsive weather information, the suggestion is given according to the current weather situation. For example, it gives users suggestions on good for outdoor activities when it is sunny weather and takes an umbrella when it rains or drizzles. Also, it gives users clothing suggestions according to the "feels-like" temperature.
 
 ## Tools used in this project
 1. Front-end
-JAVASCRIPT, CSS, along with REACT, EXPRESS, and NODE.js was used. Google Map API was also used to work on the map component. Jest was used for unit testing.
-2. Back-end
-JAVASCRIPT, CSS, along with REACT, EXPRESS, and NODE.js was used. Express Router collects navigational components that compose declaratively with the application. Axios was used to consume OpenWeather APIs. Jest was used for unit testing.
-3. Database
+Javascript, Css, along with React was used. Google Map API was also used to work on the map component. Jest was used for unit testing.
+1. Back-end
+Javascript along with Express, Mongoose and Node.js was used. Express Router collects navigational components that compose declaratively with the application. Axios was used to consume OpenWeather APIs. Jest was used for unit testing.
+1. Database
 MongoDB was used to create and store the list of worldwide cities, which includes the name, country and other information of the cities. Then, the information could be get access to directly from front-end when the users try to search.
 
 ## Project management
