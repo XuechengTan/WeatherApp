@@ -56,7 +56,7 @@ If `npm start` failed, please check weather you have install
 ```
 npm install -g nodemon
 ```
-When you see `successfull` in terminal, express + mongoose start successfully!
+When you see `successful` in terminal, express + mongoose start successfully!
 
 In client file:
 ```

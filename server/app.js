@@ -59,7 +59,7 @@ mongoose.connection.on('open',function (error) {
     if(error){
     console.log("failed")
     }else{
-        console.log("successfull")
+        console.log("successful")
     }
 })
 
