@@ -24,6 +24,10 @@ npm install --save-dev jest babel-jest @babel/core @babel/preset-env @types/jest
 npm install --save-dev jest-mock-axios
 npm install --save-dev enzyme @wojtekmaj/enzyme-adapter-react-17 jest-enzyme
 ```
+Map:
+```
+npm install --save google-map-react
+```
 Axios:
 ```
 npm install axios
@@ -84,19 +88,19 @@ For the default and responsive weather information, the suggestion is given acco
 
 ## Tools used in this project
 1. Front-end
-Javascript, Css, along with React was used. Google Map API was also used to work on the map component. Jest was used for unit testing.
-1. Back-end
-Javascript along with Express, Mongoose and Node.js was used. Express Router collects navigational components that compose declaratively with the application. Axios was used to consume OpenWeather APIs. Jest was used for unit testing.
+For the four people in our group, `React` was a new technology. The framework for the development of the weather forecast software was built based on what we learned in class. Our application interface is divided into seven parts, navbar, search, map, current weather, weather forecast, news, and suggestions. Our application needs to use `openweather`'s API to get weather-related JSON data. After successful acquisitions, we store the obtained data (current weather and weather forecast for the next two days) in the corresponding state and make calls to each component. At the same time, we also learned the UI design `material-UI` provided by React to style the application (Grid). We used `GoogleMap` API to get the map and display it on the page. Also, we use Axios to handle asynchronous requests and navigator geolocation to get the user's current location.
+2. Back-end
+For the back end, we mainly use `Express` and `Mongoose`, with Express fetching the POST requests from the front end and then fetching the weather data from Openweather's API via Axios. In this POST request, we check if the city entered by the user matches the city data in the database. If it matches, the front-end will receive the data for the corresponding city. In addition, for the default display of city and weather, we receive the latitude and longitude from the front-end POST request and then use the latitude and longitude to get the weather information for the location and return it to the front-end. The purpose of this is to ensure that all data comes from the back-end server and not from the front-end requesting data directly from the API. This has the advantage of improving the stability and reusability of the code compared to fetching data directly from the API.
 1. Database
-MongoDB was used to create and store the list of worldwide cities, which includes the name, country and other information of the cities. Then, the information could be get access to directly from front-end when the users try to search.
+We have stored all the current cities in `MongoDB`. When the user performs a search, the application will prompt the user for the correct search if the user tries to search for a city that does not exist. This makes the server less likely to send back errors and makes the application faster at determining user input (compared to sending data directly to the openweather server).
 
 ## Project management
-* Zoom Meeting
+* `Zoom Meeting`
 The Zoom meeting is held every two days, the team members discuss to make the project plan, implement the idea and meet the requirements. Besides the scheduled meeting, we also get connected with each other using the instant messaging App like WeChat for urgent response.
-* Trello Board 
+* `Trello Board` 
 Trello was used to create the task boards with the columns To Do, Progress, and Done. The team members could have a whole picture of how the development is going on. Also, each member could grab and work on the part they are good at.
 * Version Control 
-GitHub Version Control was used to track and manage changes of the software code over time. It enables multiple people to simultaneously work on a single project.
+`GitHub` Version Control was used to track and manage changes of the software code over time. It enables multiple people to simultaneously work on a single project.
 
 ## Acknowledgement
-We sincerely appreciate the embedding of OpenWeather https://openweathermap.org/ for the current weather and weather forecasting information, Google Maps https://www.google.com/maps for the location and map information, and Bing News https://www.bing.com/news for the region's lastest news to enable our project's functionality.
+We sincerely appreciate the embedding of OpenWeather https://openweathermap.org/ for the current weather and weather forecasting information, Google Maps https://developers.google.com/maps/documentation for the location and map information, and Bing News https://www.bing.com/news for the region's lastest news to enable our project's functionality.
