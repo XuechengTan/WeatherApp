@@ -1,4 +1,5 @@
 {
+  "homepage": "https://zf49.github.io/Group-29-Aquamarine-Alpaca/",
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
@@ -13,6 +14,7 @@
     "babel-preset-react-app": "^3.1.2",
     "cors": "^2.8.5",
     "enzyme-adapter-react-15": "^1.4.3",
+    "gh-pages": "^3.1.0",
     "google-map-react": "^2.1.9",
     "google-maps-react": "^2.0.6",
     "mongoose": "^5.12.7",
@@ -28,6 +30,8 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
