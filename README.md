@@ -18,15 +18,42 @@ In client file:
 ```
 npm install
 ```
+Test: 
+```
+npm install --save-dev jest babel-jest @babel/core @babel/preset-env @types/jest
+npm install --save-dev jest-mock-axios
+npm install --save-dev enzyme @wojtekmaj/enzyme-adapter-react-17 jest-enzyme
+```
+Axios:
+```
+npm install axios
+```
+Please ensrue your host has install material-ui
+```
+npm install @material-ui/core
+```
+
 
 ### To run the weather forecaster locally
 
-Please install mongoDB in your computer and input the ` MongoDB_Data` into `mongodb://localhost:27017/CityName`
-
+Please install mongoDB in your computer and input the ` MongoDB_Data` into `mongodb://localhost:27017/CityName`.
+Collection name should be `citynames`
+```
+npm install --save mongoose
+```
 In server file:
 ```
 npm start
 ```
+If `npm start` failed, please check weather you have install 
+`nodemon` or not.
+
+`nodemon` is a tool that helps develop node.js based applications by automatically restarting the node application when file changes in the directory are detected.
+```
+npm install -g nodemon
+```
+When you see `successfull` in terminal, express + mongoose start successfully!
+
 In client file:
 ```
 npm start
@@ -35,7 +62,7 @@ The weather forecaster is now running in your default browser at: http://localho
 Please make sure your browser allows this webpage to access your location in order to trigger features in this weather forecaster.
 
 ## Website features
-If you want to check the weather or future weather in your city or in other cities, this weather forecaster provides you with enough information. The weather information is collected from OpenWeather API.
+If you want to check the weather or future weather in your city or in other cities, this weather forecaster provides you with enough information. The weather information is collected from `OpenWeather API`.
 
 When this weather forecaster is first loaded, it shows the weather in your current place and the weather for the next 48 hours, and your current location, with additional useful information such as clothing advice for the current weather conditions and the latest local news. ![Screenshot]
 
