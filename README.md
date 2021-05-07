@@ -56,13 +56,14 @@ If `npm start` failed, please check weather you have install
 ```
 npm install -g nodemon
 ```
-When you see `successfull` in terminal, express + mongoose start successfully!
+When you see `successful` in terminal, express + mongoose start successfully!
 
 In client file:
 ```
 npm start
 ```
 The weather forecaster is now running in your default browser at: http://localhost:3000/
+
 Please make sure your browser allows this webpage to access your location in order to trigger features in this weather forecaster.
 
 ## Website features
@@ -105,4 +106,4 @@ Trello was used to create the task boards with the columns To Do, Progress, and 
 `GitHub` Version Control was used to track and manage changes of the software code over time. It enables multiple people to simultaneously work on a single project.
 
 ## Acknowledgement
-We sincerely appreciate the embedding of OpenWeather https://openweathermap.org/ for the current weather and weather forecasting information, Google Maps https://developers.google.com/maps/documentation for the location and map information, and Bing News https://www.bing.com/news for the region's lastest news to enable our project's functionality.
+We sincerely appreciate the embedding of `OpenWeather` https://openweathermap.org/ for the current weather and weather forecasting information, `Google Maps` https://developers.google.com/maps/documentation for the location and map information, and `Bing News` https://www.bing.com/news for the region's latest news to enable our project's functionality.
