@@ -71,11 +71,11 @@ class App extends React.Component {
         this.handleNews(content)
         this.handleSuggestion(this.state.weather)
 
-            // get weatherforecast
+            // get weatherForecast
         axios.post("http://localhost:3001/weatherForecast",body).then((response)=>{
             console.log( response.data.list[0]);
-               this.setState({weatherforecast:response.data})
-               this.handleWeatherForecast (this.state.weatherforecast)
+               this.setState({weatherForecast:response.data})
+               this.handleWeatherForecast (this.state.weatherForecast)
            });
         }
        });
