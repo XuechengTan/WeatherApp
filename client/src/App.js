@@ -53,7 +53,6 @@ class App extends React.Component {
 
     // handle the users search options
     search = (content) => {
-        console.log("content:" + content)
         const body = {
             city: content
         };
