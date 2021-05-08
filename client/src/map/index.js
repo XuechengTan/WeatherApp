@@ -48,7 +48,6 @@ class MapContainer extends React.Component {
         return (
             <div className="Map">
                 <GoogleMapReact
-                    // ref={c => this.googleMap = c}
                     bootstrapURLKeys={ {key: "AIzaSyDOr6t4ExGs3TE8CTAGsI5tk3Zpor_Egow"} }
                     defaultZoom={11}
                     defaultCenter={[1,1]}
