@@ -34,7 +34,7 @@ Axios:
 ```
 npm install axios
 ```
-Please ensrue your host has install material-ui
+Please ensure your host has install material-ui
 ```
 npm install @material-ui/core
 ```
