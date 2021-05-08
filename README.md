@@ -98,8 +98,8 @@ For the back end, we mainly use `Express` and `Mongoose`, with Express fetching 
 We have stored all the current cities in `MongoDB`. When the user performs a search, the application will prompt the user for the correct search if the user tries to search for a city that does not exist. This makes the server less likely to send back errors and makes the application faster at determining user input (compared to sending data directly to the openweather server).
 
 ## Project management
-* `Zoom Meeting`
-The Zoom meeting is held every two days, the team members discuss to make the project plan, implement the idea and meet the requirements. Besides the scheduled meeting, we also get connected with each other using the instant messaging App like WeChat for urgent response.
+* `Zoom and Tecent Meeting`
+The Zoom or Tecent meeting is held around every two days, the team members discuss to make the project plan, implement the idea and meet the requirements. Besides the scheduled meeting, we also get connected with each other using the instant messaging App like `WeChat` for urgent response.
 * `Trello Board` 
 Trello was used to create the task boards with the columns To Do, Progress, and Done. The team members could have a whole picture of how the development is going on. Also, each member could grab and work on the part they are good at.
 * Version Control 
