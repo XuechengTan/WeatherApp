@@ -42,7 +42,7 @@ npm install @material-ui/core
 
 ### To run the weather forecaster locally
 
-Please install mongoDB in your computer and input the ` MongoDB_Data` into `mongodb://localhost:27017/CityName`.
+Please install `mongoDB` in your computer and input the ` MongoDB_Data` into `mongodb://localhost:27017/CityName`.
 Collection name should be `citynames`
 ```
 npm install --save mongoose
