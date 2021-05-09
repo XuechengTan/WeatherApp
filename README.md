@@ -73,7 +73,7 @@ When this weather forecaster is first loaded, it shows the weather in your curre
 
  ![Screenshot 2](/screenshot/Beijing.png?raw=true "Screenshot 2")
 
-If you want to check current weather or weather in the next 48 hours of other cities, simply type in the name of the city you wish to know in the search tab, then the webpage will refresh and showcase that specific city's current weather, weather in the next 48 hours, location, latest news, and clothing suggestion. 
+If you want to check current weather or weather in the next 48 hours of other cities, simply type in the name of the city you wish to know in the search tab, then the webpage will show that specific city's current weather, weather in the next 48 hours, location, latest news, and clothing suggestion. 
 
 ![Screenshot 3](/screenshot/Auckland.png?raw=true "Screenshot 3")
 
