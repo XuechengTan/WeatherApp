@@ -105,7 +105,7 @@ For the default and responsive weather information, the suggestion is given acco
 4. Test
    
    In terms of testing, we took `Jest` and other ways to test the code, tested whether the asynchronous request from the back-end (whether the API can accept the correct data), and whether the front-end code is displayed correctly. We were using `Postman` to test the connection between the front-end and the back-end.
-## Project management
+## Project management (details and contributions can be found in Wiki)
 * `Zoom and Tecent Meeting`
 The Zoom or Tecent meeting is held around every day, the team members discuss to make the project plan, implement the idea and meet the requirements. Besides the scheduled meeting, we also get connected with each other using the instant messaging App like `WeChat` for urgent response.
 * `Trello Board` 
