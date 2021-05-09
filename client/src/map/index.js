@@ -37,7 +37,7 @@ class MapContainer extends React.Component {
                 .then((locationArr) => {
                     p[0] = locationArr[1];
                     p[1] = locationArr[0]
-                    this.componentDidUpdate(this.setState({ location: p }, () => console.log(this.state.location)))
+                    this.componentDidUpdate(this.setState({ location: p }, () => console.log("your location: "+this.state.location)))
                 }).catch((data) => {
             })
         })
