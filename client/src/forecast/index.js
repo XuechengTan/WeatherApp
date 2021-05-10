@@ -78,6 +78,7 @@ class WeatherForecast extends React.Component {
 }
 
 // time display in normal mode
+//eslint-disable-next-line
 Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,
