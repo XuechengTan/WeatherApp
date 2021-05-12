@@ -30,7 +30,8 @@ class Calender extends React.Component {
         );
     }
   }
-//eslint-disable-next-line
+
+// eslint-disable-next-line
   Date.prototype.Format = function (fmt) {
       var o = {
           "M+": this.getMonth() + 1,

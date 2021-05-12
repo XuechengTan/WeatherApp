@@ -60,11 +60,13 @@ class Search extends React.Component {
             return true
         }
     }
+
     handleClose = () => {
         this.setState({
             open: false
         })
     }
+
     onKeyDownchange =(e) => {
 
         if(e.keyCode === 13) {
