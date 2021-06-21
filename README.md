@@ -115,3 +115,4 @@ Trello was used to create the task boards with the columns To Do, Progress, and 
 
 ## Acknowledgement
 We sincerely appreciate the embedding of `OpenWeather` https://openweathermap.org/ for the current weather and weather forecasting information, `Google Maps` https://developers.google.com/maps/documentation for the location and map information, and `Bing News` https://www.bing.com/news for the region's latest news to enable our project's functionality.
+# WeatherApp
